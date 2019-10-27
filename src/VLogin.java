@@ -82,7 +82,7 @@ public class VLogin extends JFrame {
 		
 		passwordField = new JPasswordField();
 		passwordField.setForeground(Color.GRAY);
-		passwordField.setBounds(5, 223, 179, 20);
+		passwordField.setBounds(5, 223, 179, 29);
 		contentPane.add(passwordField);
 		
 		JButton btnEntrar = new JButton("Entrar");
