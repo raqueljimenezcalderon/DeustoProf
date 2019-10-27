@@ -11,8 +11,11 @@ import java.awt.SystemColor;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.UIManager;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 
 public class VLogin extends JFrame {
 
@@ -86,15 +89,30 @@ public class VLogin extends JFrame {
 		contentPane.add(passwordField);
 		
 		JButton btnEntrar = new JButton("Entrar");
+		btnEntrar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+			}
+		});
+		btnEntrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+			}
+		});
 		btnEntrar.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		btnEntrar.setForeground(SystemColor.activeCaption);
+		btnEntrar.setForeground(new Color(0, 102, 153));
 		btnEntrar.setBounds(18, 306, 115, 29);
 		contentPane.add(btnEntrar);
 		
-		JButton button = new JButton("Registrarse");
-		button.setForeground(SystemColor.activeCaption);
-		button.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		button.setBounds(164, 306, 139, 29);
-		contentPane.add(button);
+		JButton buttonRegistrarse = new JButton("Registrarse");
+		buttonRegistrarse.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		buttonRegistrarse.setForeground(new Color(0, 102, 153));
+		buttonRegistrarse.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		buttonRegistrarse.setBounds(164, 306, 139, 29);
+		contentPane.add(buttonRegistrarse);
 	}
 }
