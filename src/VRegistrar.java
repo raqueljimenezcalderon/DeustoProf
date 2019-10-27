@@ -143,5 +143,9 @@ public class VRegistrar extends JFrame {
 		button_1.setFont(new Font("Tahoma", Font.PLAIN, 19));
 		button_1.setBounds(15, 366, 139, 29);
 		contentPane.add(button_1);
+		
+		ButtonGroup bg = new ButtonGroup();
+		bg.add(radioButton);
+		bg.add(rdbtnMasculino);
 	}
 }
