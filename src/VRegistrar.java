@@ -9,6 +9,7 @@ import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.SystemColor;
 
@@ -17,9 +18,9 @@ public class VRegistrar extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldNombreUsuario;
 	private JPasswordField passwordFieldContraseña;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField textFieldNombre;
+	private JTextField textFieldApellido;
+	private JTextField textFieldTelefono;
 
 	/**
 	 * Launch the application.
@@ -79,73 +80,73 @@ public class VRegistrar extends JFrame {
 		passwordFieldContraseña.setBounds(15, 194, 179, 29);
 		contentPane.add(passwordFieldContraseña);
 		
-		JLabel label = new JLabel("Introduce tu nombre:");
-		label.setForeground(new Color(0, 102, 153));
-		label.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		label.setBounds(422, 84, 313, 18);
-		contentPane.add(label);
+		JLabel labelNombre = new JLabel("Introduce tu nombre:");
+		labelNombre.setForeground(new Color(0, 102, 153));
+		labelNombre.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		labelNombre.setBounds(422, 84, 313, 18);
+		contentPane.add(labelNombre);
 		
-		textField = new JTextField();
-		textField.setForeground(Color.GRAY);
-		textField.setFont(new Font("Tahoma", Font.ITALIC, 19));
-		textField.setColumns(10);
-		textField.setBounds(422, 119, 179, 25);
-		contentPane.add(textField);
+		textFieldNombre = new JTextField();
+		textFieldNombre.setForeground(Color.GRAY);
+		textFieldNombre.setFont(new Font("Tahoma", Font.ITALIC, 19));
+		textFieldNombre.setColumns(10);
+		textFieldNombre.setBounds(422, 119, 179, 25);
+		contentPane.add(textFieldNombre);
 		
-		JLabel label_1 = new JLabel("Introduce tu apellido:");
-		label_1.setForeground(new Color(0, 102, 153));
-		label_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		label_1.setBounds(422, 161, 313, 18);
-		contentPane.add(label_1);
+		JLabel labelApellido = new JLabel("Introduce tu apellido:");
+		labelApellido.setForeground(new Color(0, 102, 153));
+		labelApellido.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		labelApellido.setBounds(422, 161, 313, 18);
+		contentPane.add(labelApellido);
 		
-		textField_1 = new JTextField();
-		textField_1.setForeground(Color.GRAY);
-		textField_1.setFont(new Font("Tahoma", Font.ITALIC, 19));
-		textField_1.setColumns(10);
-		textField_1.setBounds(422, 195, 179, 25);
-		contentPane.add(textField_1);
+		textFieldApellido = new JTextField();
+		textFieldApellido.setForeground(Color.GRAY);
+		textFieldApellido.setFont(new Font("Tahoma", Font.ITALIC, 19));
+		textFieldApellido.setColumns(10);
+		textFieldApellido.setBounds(422, 195, 179, 25);
+		contentPane.add(textFieldApellido);
 		
-		JLabel label_2 = new JLabel("Introduce tu n\u00FAmero de tel\u00E9fono:");
-		label_2.setForeground(new Color(0, 102, 153));
-		label_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		label_2.setBounds(15, 250, 313, 18);
-		contentPane.add(label_2);
+		JLabel labelTelefono = new JLabel("Introduce tu n\u00FAmero de tel\u00E9fono:");
+		labelTelefono.setForeground(new Color(0, 102, 153));
+		labelTelefono.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		labelTelefono.setBounds(15, 250, 313, 18);
+		contentPane.add(labelTelefono);
 		
-		textField_2 = new JTextField();
-		textField_2.setForeground(Color.GRAY);
-		textField_2.setFont(new Font("Tahoma", Font.ITALIC, 19));
-		textField_2.setColumns(10);
-		textField_2.setBounds(15, 284, 179, 25);
-		contentPane.add(textField_2);
+		textFieldTelefono = new JTextField();
+		textFieldTelefono.setForeground(Color.GRAY);
+		textFieldTelefono.setFont(new Font("Tahoma", Font.ITALIC, 19));
+		textFieldTelefono.setColumns(10);
+		textFieldTelefono.setBounds(15, 284, 179, 25);
+		contentPane.add(textFieldTelefono);
 		
-		JLabel label_3 = new JLabel("Sexo:");
-		label_3.setForeground(new Color(0, 102, 153));
-		label_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		label_3.setBounds(422, 251, 313, 18);
-		contentPane.add(label_3);
+		JLabel labelSexo = new JLabel("Sexo:");
+		labelSexo.setForeground(new Color(0, 102, 153));
+		labelSexo.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		labelSexo.setBounds(422, 251, 313, 18);
+		contentPane.add(labelSexo);
 		
 		JRadioButton rdbtnMasculino = new JRadioButton("Masculino");
 		rdbtnMasculino.setBounds(422, 284, 135, 29);
 		contentPane.add(rdbtnMasculino);
 		
-		JRadioButton radioButton = new JRadioButton("Femenino");
-		radioButton.setBounds(567, 284, 155, 29);
-		contentPane.add(radioButton);
+		JRadioButton radioButtonFemenino = new JRadioButton("Femenino");
+		radioButtonFemenino.setBounds(567, 284, 155, 29);
+		contentPane.add(radioButtonFemenino);
 		
-		JButton button = new JButton("Registrarse");
-		button.setForeground(SystemColor.activeCaption);
-		button.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		button.setBounds(418, 366, 139, 27);
-		contentPane.add(button);
+		JButton buttonRegistrarse = new JButton("Registrarse");
+		buttonRegistrarse.setForeground(SystemColor.activeCaption);
+		buttonRegistrarse.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		buttonRegistrarse.setBounds(418, 366, 139, 27);
+		contentPane.add(buttonRegistrarse);
 		
-		JButton button_1 = new JButton("Atr\u00E1s");
-		button_1.setForeground(SystemColor.activeCaption);
-		button_1.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		button_1.setBounds(15, 366, 139, 29);
-		contentPane.add(button_1);
+		JButton buttonAtras = new JButton("Atr\u00E1s");
+		buttonAtras.setForeground(SystemColor.activeCaption);
+		buttonAtras.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		buttonAtras.setBounds(15, 366, 139, 29);
+		contentPane.add(buttonAtras);
 		
 		ButtonGroup bg = new ButtonGroup();
-		bg.add(radioButton);
+		bg.add(radioButtonFemenino);
 		bg.add(rdbtnMasculino);
 	}
 }
