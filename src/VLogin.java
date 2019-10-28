@@ -26,19 +26,22 @@ public class VLogin extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VLogin frame = new VLogin();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					VLogin frame = new VLogin();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
+	
+	public void closeWin() {
+		this.dispose();
 	}
-
 	/**
 	 * Create the frame.
 	 */
@@ -97,7 +100,9 @@ public class VLogin extends JFrame {
 		});
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
+				VAcceso acc = new VAcceso();
+				acc.setVisible(true);
+				closeWin();
 			}
 		});
 		btnEntrar.setFont(new Font("Tahoma", Font.PLAIN, 19));
@@ -108,6 +113,9 @@ public class VLogin extends JFrame {
 		JButton buttonRegistrarse = new JButton("Registrarse");
 		buttonRegistrarse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				VRegistrar reg = new VRegistrar();
+				reg.setVisible(true);
+				closeWin();
 			}
 		});
 		buttonRegistrarse.setForeground(new Color(0, 102, 153));

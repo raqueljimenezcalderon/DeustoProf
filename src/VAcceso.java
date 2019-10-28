@@ -22,19 +22,22 @@ public class VAcceso extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VAcceso frame = new VAcceso();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					VAcceso frame = new VAcceso();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
+	public void closeWin() {
+		this.dispose();
+	}
 	/**
 	 * Create the frame.
 	 */
@@ -103,10 +106,22 @@ public class VAcceso extends JFrame {
 			}
 		});
 		btnAtras.setForeground(new Color(0, 102, 153));
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VLogin log = new VLogin();
+				log.setVisible(true);
+				closeWin();
+			}
+		});
 		btnAtras.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		panel.add(btnAtras);
 		
 		JButton btnSalir = new JButton("Salir");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				closeWin();
+			}
+		});
 		btnSalir.setForeground(new Color(0, 102, 153));
 		btnSalir.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		panel.add(btnSalir);

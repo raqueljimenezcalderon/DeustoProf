@@ -12,6 +12,8 @@ import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class VRegistrar extends JFrame {
 
@@ -25,19 +27,23 @@ public class VRegistrar extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VRegistrar frame = new VRegistrar();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					VRegistrar frame = new VRegistrar();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
+	public void closeWin() {
+		this.dispose();
+	}
+	
 	/**
 	 * Create the frame.
 	 */
@@ -140,6 +146,13 @@ public class VRegistrar extends JFrame {
 		contentPane.add(buttonRegistrarse);
 		
 		JButton buttonAtras = new JButton("Atr\u00E1s");
+		buttonAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VLogin log = new VLogin();
+				log.setVisible(true);
+				closeWin();
+			}
+		});
 		buttonAtras.setForeground(SystemColor.activeCaption);
 		buttonAtras.setFont(new Font("Tahoma", Font.PLAIN, 19));
 		buttonAtras.setBounds(15, 366, 139, 29);
