@@ -24,21 +24,6 @@ public class VRegistrar extends JFrame {
 	private JTextField textFieldApellido;
 	private JTextField textFieldTelefono;
 
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					VRegistrar frame = new VRegistrar();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
 
 	public void closeWin() {
 		this.dispose();
@@ -140,7 +125,12 @@ public class VRegistrar extends JFrame {
 		contentPane.add(radioButtonFemenino);
 		
 		JButton buttonRegistrarse = new JButton("Registrarse");
+		buttonRegistrarse.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		buttonRegistrarse.setForeground(SystemColor.activeCaption);
+		buttonRegistrarse.setForeground(new Color(0, 102, 153));
 		buttonRegistrarse.setFont(new Font("Tahoma", Font.PLAIN, 19));
 		buttonRegistrarse.setBounds(418, 366, 139, 27);
 		contentPane.add(buttonRegistrarse);
@@ -154,6 +144,7 @@ public class VRegistrar extends JFrame {
 			}
 		});
 		buttonAtras.setForeground(SystemColor.activeCaption);
+		buttonAtras.setForeground(new Color(0, 102, 153));
 		buttonAtras.setFont(new Font("Tahoma", Font.PLAIN, 19));
 		buttonAtras.setBounds(15, 366, 139, 29);
 		contentPane.add(buttonAtras);
