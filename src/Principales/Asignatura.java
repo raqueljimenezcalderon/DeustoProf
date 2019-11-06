@@ -12,6 +12,13 @@ public class Asignatura {
 		this.nombreAsignatura = nombreAsignatura;
 		this.descripcion = descripcion;
 	}
+	
+	public Asignatura() {
+		
+		this.codAsignatura = "";
+		this.nombreAsignatura = "";
+		this.descripcion = "";
+	}
 
 	public String getCodAsignatura() {
 		return codAsignatura;

@@ -8,6 +8,11 @@ public class Matricula {
 	
 		this.nota = nota;
 	}
+	
+	public Matricula() {
+		
+		this.nota = 0;
+	}
 
 	public int getNota() {
 		return nota;
