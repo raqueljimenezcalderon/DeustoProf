@@ -4,71 +4,136 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class GestorBD {
 
-	private Connection conn = null;
+	private static Connection conn = null;
+	private static Statement statement;
 
 	/**
 	 * Crea una conexión con la base de datos.
-	 * @throws DBException Se produce cuando existe un problema con la creación de la conexión a la BD.
+	 * 
+	 * @throws DBException Se produce cuando existe un problema con la creación de
+	 *                     la conexión a la BD.
 	 */
-	
-	public void conectar() throws BDException {
+
+	public static Connection iniciarConexion() throws BDException {
 		try {
 			Class.forName("org.sqlite.JDBC");
-			conn = DriverManager.getConnection("jdbc:sqlite:datos/DeustoProf.bd");
+			conn = DriverManager.getConnection("jdbc:sqlite:DeustoProf.bd");
+			return conn;
 		} catch (ClassNotFoundException e) {
 			throw new BDException("No se ha podido cargar el driver de la BD", e);
 		} catch (SQLException e) {
 			throw new BDException("No se ha podido conectar a la BD", e);
 		}
 	}
-	
-	
+
+	// Statement para usar la base de datos
+	public static Statement usarBD(Connection con) {
+		try {
+			Statement statement = con.createStatement();
+			statement.setQueryTimeout(30);
+			return statement;
+		} catch (SQLException e) {
+			log(Level.SEVERE, "Error en uso de base de datos", e);
+			return null;
+		}
+	}
+
 	/**
 	 * Cierra una conexión con la BD.
-	 * @throws DBException Se produce cuando existe un error a la hora de conectar con la BD.
+	 * 
+	 * @throws DBException Se produce cuando existe un error a la hora de conectar
+	 *                     con la BD.
 	 */
-	public void desconectar() throws BDException {
+	public static void desconectar() throws BDException {
 		try {
-			if (conn != null) { //esto no está en su ejemplo
+			if (conn != null) { // esto no está en su ejemplo
 				conn.close();
+				log(Level.INFO, "Cierre de base de datos", null);
 			}
 		} catch (SQLException e) {
 			throw new BDException("No se ha podido cerrar la base de datos", e);
 		}
 	}
-	
+
 	/**
-	 * Crea la tabla 'profesor' si no existe
-	 * @throws DBException Se produce cuando existe un error en la creación de la tabla 'profesor'
+	 * Crea la tabla 'profesor', 'alumno','asigantura', 'matricula' si no existen
+	 * 
+	 * @throws DBException Se produce cuando existe un error en la creación de la
+	 *                     tabla 'profesor'
 	 */
-	
-	public void createPofesorTable() throws BDException {
+	// Crea la tabla 'profesor' si no existe
+	public static Statement createPofesorTable() throws BDException {
 		try (Statement stmt = conn.createStatement()) {
-			stmt.executeUpdate("CREATE TABLE IF NOT EXISTS profesor (nombre_usu VARCHAR, nombre VARCHAR, apellido VARCHAR, birthdate VARCHAR, sexo VARCHAR, ciudad VARCHAR, contrasena VARCHAR, telefono VARCHAR)");
+			stmt.executeUpdate(
+					"CREATE TABLE IF NOT EXISTS profesor (dni_profe VARCHAR primary key, nombre VARCHAR, apellido VARCHAR, birthdate VARCHAR, sexo VARCHAR, ciudad VARCHAR, contrasena VARCHAR, telefono VARCHAR)");
+			return stmt;
 		} catch (SQLException e) {
 			throw new BDException("Error creando la tabla 'profesor' en la BD", e);
 		}
 	}
-	
-	//Crea la tabla 'alumno' si no existe
-	public void createAlumnoTable() throws BDException {
+
+	// Crea la tabla 'alumno' si no existe
+	public static Statement createAlumnoTable() throws BDException {
 		try (Statement stmt = conn.createStatement()) {
-			stmt.executeUpdate("CREATE TABLE IF NOT EXISTS alumno (dni_alumno VARCHAR, nombre VARCHAR, apellido VARCHAR, birthdate VARCHAR, sexo VARCHAR, ciudad VARCHAR)");
+			stmt.executeUpdate(
+					"CREATE TABLE IF NOT EXISTS alumno (dni_alumno VARCHAR primary key, nombre VARCHAR, apellido VARCHAR, birthdate VARCHAR, sexo VARCHAR, ciudad VARCHAR)");
+			return stmt;
 		} catch (SQLException e) {
 			throw new BDException("Error creando la tabla 'alumno' en la BD", e);
 		}
 	}
-	
-	//Crea la tabla 'asignatura' si no existe
-	public void createAsignaturaTable() throws BDException {
+
+	// Crea la tabla 'asignatura' si no existe
+	public static Statement createAsignaturaTable() throws BDException {
 		try (Statement stmt = conn.createStatement()) {
-			stmt.executeUpdate("CREATE TABLE IF NOT EXISTS asignatura (dni_alumno VARCHAR, nombre VARCHAR, apellido VARCHAR, birthdate VARCHAR, sexo VARCHAR, ciudad VARCHAR)");
+			stmt.executeUpdate(
+					"CREATE TABLE IF NOT EXISTS asignatura (cod_asig VARCHAR primary key, nombre VARCHAR, descripcion VARCHAR)");
+			return stmt;
 		} catch (SQLException e) {
-			throw new BDException("Error creando la tabla 'alumno' en la BD", e);
+			throw new BDException("Error creando la tabla 'asignatura' en la BD", e);
 		}
 	}
-	
+
+	// Crea la tabla 'matricula' si no existe
+
+	public static Statement createMatriculaTable() throws BDException {
+		try (Statement stmt = conn.createStatement()) {
+			stmt.executeUpdate(
+					"CREATE TABLE IF NOT EXISTS matricula (dni_alumno VARCHAR, cod_asig VARCHAR, apellido VARCHAR, nota VARCHAR, primary key(dni_alumno, cod_asig))");
+			return stmt;
+		} catch (SQLException e) {
+			throw new BDException("Error creando la tabla 'matricula' en la BD", e);
+		}
+	}
+
+	// Logger
+	private static Logger logger = null;
+
+	public static void setLogger(Logger logger) {
+		GestorBD.logger = logger;
+	}
+
+	private static void log(Level level, String msg, Throwable excepcion) {
+		if (logger == null) {
+			logger = Logger.getLogger(GestorBD.class.getName());
+			logger.setLevel(Level.ALL);
+			try {
+				logger.addHandler(new FileHandler("bd.log.xml", true));
+			} catch (Exception e) {
+				logger.log(Level.SEVERE, "No se pudo crear fichero de log", e);
+			}
+		}
+		if (excepcion == null) {
+			logger.log(level, msg);
+		} else {
+			logger.log(level, msg, excepcion);
+		}
+	}
+
 }

@@ -39,18 +39,18 @@ public class VAcceso extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VAcceso frame = new VAcceso();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					VAcceso frame = new VAcceso();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	public void closeWin() {
 		this.dispose();
@@ -133,7 +133,7 @@ public class VAcceso extends JFrame {
 		
 		panel = new JPanel();
 		contentPane.add(panel, BorderLayout.SOUTH);
-//alberto
+
 		
 		btnAtras = new JButton("Atr\u00E1s");
 		btnAtras.addActionListener(new ActionListener() {
