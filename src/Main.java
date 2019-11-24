@@ -8,4 +8,3 @@ public class Main {
 	}
 
 }
-//https://icons8.com/icons/set/java-logo#

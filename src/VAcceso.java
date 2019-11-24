@@ -14,6 +14,7 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import javax.swing.JButton;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -59,9 +60,10 @@ public class VAcceso extends JFrame {
 	 * Create the frame.
 	 */
 	public VAcceso() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("logo.png"));
 		setTitle("DeustoProf");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(200, 100, 1500, 800);
+		setBounds(100, 100, 1021, 575);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));

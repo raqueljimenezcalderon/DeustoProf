@@ -12,6 +12,7 @@ import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.SystemColor;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -33,6 +34,7 @@ public class VRegistrar extends JFrame {
 	 * Create the frame.
 	 */
 	public VRegistrar() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("logo.png"));
 		setTitle("DeustoProf");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 714, 465);

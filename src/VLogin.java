@@ -75,7 +75,7 @@ public class VLogin extends JFrame {
 
 		setIconImage(Toolkit.getDefaultToolkit().getImage("logo.png"));
 		setBackground(new Color(0, 0, 255));
-		this.setUndecorated(true); // Ventana sin marcos de java predefinidos
+		//this.setUndecorated(true); // Ventana sin marcos de java predefinidos
 		setTitle("DeustoProf");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 507, 428);
