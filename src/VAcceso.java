@@ -1,10 +1,17 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
+//alberto
 import java.awt.EventQueue;
+import java.awt.Dimension;
+//
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 import javax.swing.JButton;
 import java.awt.GridLayout;
 import java.awt.Font;
@@ -14,6 +21,20 @@ import java.awt.event.ActionEvent;
 public class VAcceso extends JFrame {
 
 	private JPanel contentPane;
+	private JPanel panelBotones;
+	private JButton btnAñadirAsignatura;
+	private JButton btnAñadirAlumno;
+	private JButton btnAñadirNotas;
+	private JButton btnEditarInformacin;
+	private JButton btnEditarInformaconAsignatura;
+	private JButton btnEditarInformacinAlumno;
+	private JButton btnEditarNotas;
+	private JButton btnTomarApuntes;
+	private JScrollPane panelTabla;
+	private JPanel panel;
+	private JButton btnAtras;
+	private JButton btnSalir;
+	private JTable tabla;
 
 	/**
 	 * Launch the application.
@@ -40,63 +61,81 @@ public class VAcceso extends JFrame {
 	public VAcceso() {
 		setTitle("DeustoProf");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 693, 477);
+		setBounds(200, 100, 1500, 800);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		JPanel panelBotones = new JPanel();
+		panelBotones = new JPanel();
 		contentPane.add(panelBotones, BorderLayout.EAST);
 		panelBotones.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JButton btnAñadirAsignatura = new JButton("A\u00F1adir Asignatura");
+		btnAñadirAsignatura = new JButton("A\u00F1adir Asignatura");
 		btnAñadirAsignatura.setForeground(new Color(0, 102, 153));
 		btnAñadirAsignatura.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		panelBotones.add(btnAñadirAsignatura);
 		
-		JButton btnAñadirAlumno = new JButton("A\u00F1adir Alumno");
+		btnAñadirAlumno = new JButton("A\u00F1adir Alumno");
 		btnAñadirAlumno.setForeground(new Color(0, 102, 153));
 		btnAñadirAlumno.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		panelBotones.add(btnAñadirAlumno);
 		
-		JButton btnAñadirNotas = new JButton("A\u00F1adir Notas");
+		btnAñadirNotas = new JButton("A\u00F1adir Notas");
 		btnAñadirNotas.setForeground(new Color(0, 102, 153));
 		btnAñadirNotas.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		panelBotones.add(btnAñadirNotas);
 		
-		JButton btnEditarInformacin = new JButton("Editar Informaci\u00F3n Personal");
+		btnEditarInformacin = new JButton("Editar Informaci\u00F3n Personal");
 		btnEditarInformacin.setForeground(new Color(0, 102, 153));
 		btnEditarInformacin.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		panelBotones.add(btnEditarInformacin);
 		
-		JButton btnEditarInformaconAsignatura = new JButton("Editar Informaci\u00F3n Asignatura");
+		btnEditarInformaconAsignatura = new JButton("Editar Informaci\u00F3n Asignatura");
 		btnEditarInformaconAsignatura.setForeground(new Color(0, 102, 153));
 		btnEditarInformaconAsignatura.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		panelBotones.add(btnEditarInformaconAsignatura);
 		
-		JButton btnEditarInformacinAlumno = new JButton("Editar Informaci\u00F3n Alumno");
+		btnEditarInformacinAlumno = new JButton("Editar Informaci\u00F3n Alumno");
 		btnEditarInformacinAlumno.setForeground(new Color(0, 102, 153));
 		btnEditarInformacinAlumno.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		panelBotones.add(btnEditarInformacinAlumno);
 		
-		JButton btnEditarNotas = new JButton("Editar Notas");
+		btnEditarNotas = new JButton("Editar Notas");
 		btnEditarNotas.setForeground(new Color(0, 102, 153));
 		btnEditarNotas.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		panelBotones.add(btnEditarNotas);
 		
-		JButton btnTomarApuntes = new JButton("Tomar Apuntes");
+		btnTomarApuntes = new JButton("Tomar Apuntes");
 		btnTomarApuntes.setForeground(new Color(0, 102, 153));
 		btnTomarApuntes.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		panelBotones.add(btnTomarApuntes);
 		
-		JPanel panelTabla = new JPanel();
-		contentPane.add(panelTabla, BorderLayout.CENTER);
+			
 		
+//alberto
 		JPanel panelBotonesAbajo = new JPanel();
 		contentPane.add(panelBotonesAbajo, BorderLayout.SOUTH);
+		tabla = new JTable(20,8);
+//		tabla.setBounds(0,0,panelTabla.getWidth(),panelTabla.getHeight());
+		tabla.setRowHeight(50);
+		//setJTableColumnsWidth(tabla, 480, 10, 30, 30, 30);
 		
-		JButton btnAtras = new JButton("Atr\u00E1s");
+		TableColumnModel columnModel = tabla.getColumnModel();
+//		columnModel.getColumn(0).setPreferredWidth(100);
+		
+//		columnModel.getColumn(0).set
+		panelTabla = new JScrollPane(tabla);
+		//panelTabla.setBounds(0, 0, contentPane.getWidth()/2, contentPane.getHeight()/2);
+		panelTabla.setPreferredSize(new Dimension(600, 600));
+		contentPane.add(panelTabla);
+
+		
+		panel = new JPanel();
+		contentPane.add(panel, BorderLayout.SOUTH);
+//alberto
+		
+		btnAtras = new JButton("Atr\u00E1s");
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -112,7 +151,7 @@ public class VAcceso extends JFrame {
 		btnAtras.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		panelBotonesAbajo.add(btnAtras);
 		
-		JButton btnSalir = new JButton("Salir");
+		btnSalir = new JButton("Salir");
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				closeWin();
@@ -123,4 +162,17 @@ public class VAcceso extends JFrame {
 		panelBotonesAbajo.add(btnSalir);
 	}
 
+	 public static void setJTableColumnsWidth(JTable table, int tablePreferredWidth, 
+	    		double... percentages) {
+	        double total = 0;
+	        for (int i = 0; i < table.getColumnModel().getColumnCount(); i++) {
+	            total += percentages[i];
+	        }
+	        
+	        for (int i = 0; i < table.getColumnModel().getColumnCount(); i++) {
+	            TableColumn column = table.getColumnModel().getColumn(i);
+	            column.setPreferredWidth((int)
+	                    (tablePreferredWidth * (percentages[i] / total)));
+	        }
+	    }	
 }
