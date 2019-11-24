@@ -1,5 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.EventQueue;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -16,18 +18,18 @@ public class VAcceso extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					VAcceso frame = new VAcceso();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					VAcceso frame = new VAcceso();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
 	public void closeWin() {
 		this.dispose();
@@ -91,8 +93,8 @@ public class VAcceso extends JFrame {
 		JPanel panelTabla = new JPanel();
 		contentPane.add(panelTabla, BorderLayout.CENTER);
 		
-		JPanel panel = new JPanel();
-		contentPane.add(panel, BorderLayout.SOUTH);
+		JPanel panelBotonesAbajo = new JPanel();
+		contentPane.add(panelBotonesAbajo, BorderLayout.SOUTH);
 		
 		JButton btnAtras = new JButton("Atr\u00E1s");
 		btnAtras.addActionListener(new ActionListener() {
@@ -108,7 +110,7 @@ public class VAcceso extends JFrame {
 			}
 		});
 		btnAtras.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		panel.add(btnAtras);
+		panelBotonesAbajo.add(btnAtras);
 		
 		JButton btnSalir = new JButton("Salir");
 		btnSalir.addActionListener(new ActionListener() {
@@ -118,7 +120,7 @@ public class VAcceso extends JFrame {
 		});
 		btnSalir.setForeground(new Color(0, 102, 153));
 		btnSalir.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		panel.add(btnSalir);
+		panelBotonesAbajo.add(btnSalir);
 	}
 
 }

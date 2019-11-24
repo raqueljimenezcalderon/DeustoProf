@@ -42,7 +42,7 @@ public class GestorBD {
 	
 	/**
 	 * Crea la tabla 'profesor' si no existe
-	 * @throws DBException Se produce cuando existe un error en la creación de la tabla 'user'
+	 * @throws DBException Se produce cuando existe un error en la creación de la tabla 'profesor'
 	 */
 	
 	public void createPofesorTable() throws BDException {
@@ -53,6 +53,22 @@ public class GestorBD {
 		}
 	}
 	
+	//Crea la tabla 'alumno' si no existe
+	public void createAlumnoTable() throws BDException {
+		try (Statement stmt = conn.createStatement()) {
+			stmt.executeUpdate("CREATE TABLE IF NOT EXISTS alumno (dni_alumno VARCHAR, nombre VARCHAR, apellido VARCHAR, birthdate VARCHAR, sexo VARCHAR, ciudad VARCHAR)");
+		} catch (SQLException e) {
+			throw new BDException("Error creando la tabla 'alumno' en la BD", e);
+		}
+	}
 	
+	//Crea la tabla 'asignatura' si no existe
+	public void createAsignaturaTable() throws BDException {
+		try (Statement stmt = conn.createStatement()) {
+			stmt.executeUpdate("CREATE TABLE IF NOT EXISTS asignatura (dni_alumno VARCHAR, nombre VARCHAR, apellido VARCHAR, birthdate VARCHAR, sexo VARCHAR, ciudad VARCHAR)");
+		} catch (SQLException e) {
+			throw new BDException("Error creando la tabla 'alumno' en la BD", e);
+		}
+	}
 	
 }
