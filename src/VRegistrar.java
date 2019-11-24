@@ -127,6 +127,18 @@ public class VRegistrar extends JFrame {
 		JButton buttonRegistrarse = new JButton("Registrarse");
 		buttonRegistrarse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String nUsuario = textFieldNombreUsuario.getText();
+				String nombre = textFieldNombre.getText();
+				String apellido = textFieldApellido.getText();
+				char[] contrasena = passwordFieldContraseña.getPassword();
+				String telefono = textFieldTelefono.getText();
+				String sexo; 
+				if(rdbtnMasculino.isSelected()) {
+					sexo = "Masculino";
+				}else if (radioButtonFemenino.isSelected()){
+					sexo = "Femenino";
+				}
+				
 			}
 		});
 		buttonRegistrarse.setForeground(SystemColor.activeCaption);
