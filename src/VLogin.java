@@ -59,6 +59,21 @@ public class VLogin extends JFrame {
 	 */
 	public VLogin() {
 
+		// BBDD
+		try {
+			conn = GestorBD.iniciarConexion();
+			st = GestorBD.usarBD(conn);
+			GestorBD.createPofesorTable();
+			GestorBD.createAlumnoTable();
+			GestorBD.createAsignaturaTable();
+			GestorBD.createMatriculaTable();
+
+		} catch (BDException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		setIconImage(Toolkit.getDefaultToolkit().getImage("logo.png"));
 		setBackground(new Color(0, 0, 255));
 		this.setUndecorated(true); // Ventana sin marcos de java predefinidos
 		setTitle("DeustoProf");
