@@ -42,7 +42,7 @@ public class GestorBD {
 			statement.setQueryTimeout(30);
 			log(Level.INFO, "Base de datos funcionando correctamente", null);
 			return statement;
-
+			
 		} catch (SQLException e) {
 			log(Level.SEVERE, "Error en uso de base de datos", e);
 			return null;
@@ -60,7 +60,7 @@ public class GestorBD {
 			if (conn != null) { // esto no está en su ejemplo
 				conn.close();
 				log(Level.INFO, "Cierre de base de datos", null);
-
+				
 			}
 		} catch (SQLException e) {
 			throw new BDException("No se ha podido cerrar la base de datos", e);
@@ -80,7 +80,8 @@ public class GestorBD {
 					"create table if not exists profesor (dni_profe VARCHAR primary key, nombre VARCHAR, apellido VARCHAR, birthdate VARCHAR, sexo VARCHAR, ciudad VARCHAR, contrasena VARCHAR, telefono VARCHAR)");
 			log(Level.INFO, "Creacion de la tabla profesor", null);
 			return stmt;
-
+			
+		
 		} catch (SQLException e) {
 			throw new BDException("Error creando la tabla 'profesor' en la BD", e);
 		}
@@ -120,6 +121,26 @@ public class GestorBD {
 			return stmt;
 		} catch (SQLException e) {
 			throw new BDException("Error creando la tabla 'matricula' en la BD", e);
+		}
+	}
+	
+	//Guardar usuario
+	public void guardarProfesor(Profesor p) throws BDException {
+		String sql = "INSERT INTO profesor(dni_profe,nombre,apellido,birthdate,sexo,ciudad,contrasena,telefono)VALUES (?,?,?,?,?,?,?,?)";
+		try (PreparedStatement stmt = conn.prepareStatement(sql)) { // el preparestatement gestiona esos "?"
+			// rellenamos los valores de la plantilla
+			stmt.setString(1, p.getdni());
+			stmt.setString(2, p.getNombre());
+			stmt.setString(3, p.getApellido());
+			stmt.setString(4, p.getBirthdate());
+			stmt.setString(5, p.getSexo());
+			stmt.setString(6, p.getCiudad());
+			stmt.setString(7, p.getContrasena());
+			stmt.setString(8, p.getTelefono());
+
+			stmt.executeUpdate(sql);
+		} catch (SQLException e) {
+			throw new BDException("Error al guardar losd datos del profesor", e);
 		}
 	}
 
