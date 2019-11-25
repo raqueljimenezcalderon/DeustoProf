@@ -52,6 +52,7 @@ public class VLogin extends JFrame {
 
 	public void closeWin() {
 		this.dispose();
+		
 	}
 
 	/**
@@ -75,7 +76,7 @@ public class VLogin extends JFrame {
 
 		setIconImage(Toolkit.getDefaultToolkit().getImage("logo.png"));
 		setBackground(new Color(0, 0, 255));
-		//this.setUndecorated(true); // Ventana sin marcos de java predefinidos
+		// this.setUndecorated(true); // Ventana sin marcos de java predefinidos
 		setTitle("DeustoProf");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 507, 428);
@@ -132,6 +133,7 @@ public class VLogin extends JFrame {
 				VAcceso acc = new VAcceso();
 				acc.setVisible(true);
 				closeWin();
+
 			}
 		});
 		btnEntrar.setFont(new Font("Tahoma", Font.PLAIN, 19));
@@ -149,7 +151,23 @@ public class VLogin extends JFrame {
 		});
 		buttonRegistrarse.setForeground(new Color(0, 102, 153));
 		buttonRegistrarse.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		buttonRegistrarse.setBounds(284, 306, 139, 29);
+		buttonRegistrarse.setBounds(182, 306, 139, 29);
 		contentPane.add(buttonRegistrarse);
+
+		JButton buttonSalir = new JButton("Salir");
+		buttonSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					GestorBD.desconectar();
+				} catch (BDException e) {
+					e.printStackTrace();
+				}
+				closeWin();
+			}
+		});
+		buttonSalir.setForeground(new Color(0, 102, 153));
+		buttonSalir.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		buttonSalir.setBounds(336, 306, 115, 29);
+		contentPane.add(buttonSalir);
 	}
 }

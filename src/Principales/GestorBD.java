@@ -39,7 +39,7 @@ public class GestorBD {
 		try {
 			Statement statement = con.createStatement();
 			statement.setQueryTimeout(30);
-			log(Level.INFO, "Base de datos cerrada", null);
+			log(Level.INFO, "Base de datos funcionando correctamente", null);
 			return statement;
 			
 		} catch (SQLException e) {

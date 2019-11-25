@@ -3,6 +3,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Principales.BDException;
+import Principales.GestorBD;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
@@ -28,6 +32,8 @@ public class VRegistrar extends JFrame {
 
 	public void closeWin() {
 		this.dispose();
+		
+		
 	}
 	
 	/**
