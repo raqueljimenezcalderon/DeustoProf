@@ -2,26 +2,38 @@ package Principales;
 
 public class Persona {
 
+	private String dni;
 	private String nombre;
 	private String apellido;
-	private int edad;
+	private String birthdate;
 	private String sexo;
 	private String ciudad;
 	
-	public Persona(String nombre, String apellido, int edad, String sexo, String ciudad) {
+	
+	public Persona(String dni, String nombre, String apellido, String birthdate, String sexo, String ciudad) {
+		
+		this.dni = dni;
 		this.nombre = nombre;
 		this.apellido = apellido;
-		this.edad = edad;
+		this.birthdate = birthdate;
 		this.sexo = sexo;
 		this.ciudad = ciudad;
 	}
-
+	/*
 	public Persona() {
+		this.dni = "";
 		this.nombre = "";
 		this.apellido = "";
-		this.edad = 0;
+		this.birthdate = "";
 		this.sexo = "";
 		this.ciudad = "";
+	}*/
+	
+	public String getdni() {
+		return dni;
+	}
+	public void setdni(String dni) {
+		this.dni = dni;
 	}
 	
 	public String getNombre() {
@@ -39,13 +51,13 @@ public class Persona {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-
-	public int getEdad() {
-		return edad;
+	
+	public String getBirthdate() {
+		return birthdate;
 	}
-
-	public void setEdad(int edad) {
-		this.edad = edad;
+	
+	public void setBirthdate(String birthdate) {
+		this.birthdate = birthdate;
 	}
 
 	public String getSexo() {

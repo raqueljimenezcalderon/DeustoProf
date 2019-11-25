@@ -2,6 +2,7 @@ package Principales;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.FileHandler;
@@ -41,7 +42,7 @@ public class GestorBD {
 			statement.setQueryTimeout(30);
 			log(Level.INFO, "Base de datos funcionando correctamente", null);
 			return statement;
-			
+
 		} catch (SQLException e) {
 			log(Level.SEVERE, "Error en uso de base de datos", e);
 			return null;
@@ -59,7 +60,7 @@ public class GestorBD {
 			if (conn != null) { // esto no está en su ejemplo
 				conn.close();
 				log(Level.INFO, "Cierre de base de datos", null);
-				
+
 			}
 		} catch (SQLException e) {
 			throw new BDException("No se ha podido cerrar la base de datos", e);
@@ -76,11 +77,10 @@ public class GestorBD {
 	public static Statement createPofesorTable() throws BDException {
 		try (Statement stmt = conn.createStatement()) {
 			stmt.executeUpdate(
-					"CREATE TABLE IF NOT EXISTS profesor (dni_profe VARCHAR primary key, nombre VARCHAR, apellido VARCHAR, birthdate VARCHAR, sexo VARCHAR, ciudad VARCHAR, contrasena VARCHAR, telefono VARCHAR)");
+					"create table if not exists profesor (dni_profe VARCHAR primary key, nombre VARCHAR, apellido VARCHAR, birthdate VARCHAR, sexo VARCHAR, ciudad VARCHAR, contrasena VARCHAR, telefono VARCHAR)");
 			log(Level.INFO, "Creacion de la tabla profesor", null);
 			return stmt;
-			
-		
+
 		} catch (SQLException e) {
 			throw new BDException("Error creando la tabla 'profesor' en la BD", e);
 		}
@@ -90,7 +90,7 @@ public class GestorBD {
 	public static Statement createAlumnoTable() throws BDException {
 		try (Statement stmt = conn.createStatement()) {
 			stmt.executeUpdate(
-					"CREATE TABLE IF NOT EXISTS alumno (dni_alumno VARCHAR primary key, nombre VARCHAR, apellido VARCHAR, birthdate VARCHAR, sexo VARCHAR, ciudad VARCHAR)");
+					"create table if not exists alumno (dni_alumno VARCHAR primary key, nombre VARCHAR, apellido VARCHAR, birthdate VARCHAR, sexo VARCHAR, ciudad VARCHAR, intolerancia VARCHAR)");
 			log(Level.INFO, "Creacion de la tabla alumno", null);
 			return stmt;
 		} catch (SQLException e) {
@@ -102,7 +102,7 @@ public class GestorBD {
 	public static Statement createAsignaturaTable() throws BDException {
 		try (Statement stmt = conn.createStatement()) {
 			stmt.executeUpdate(
-					"CREATE TABLE IF NOT EXISTS asignatura (cod_asig VARCHAR primary key, nombre VARCHAR, descripcion VARCHAR)");
+					"create table if not exists asignatura (cod_asig VARCHAR primary key, nombre VARCHAR, descripcion VARCHAR)");
 			log(Level.INFO, "Creacion de la tabla asignatura", null);
 			return stmt;
 		} catch (SQLException e) {
@@ -115,7 +115,7 @@ public class GestorBD {
 	public static Statement createMatriculaTable() throws BDException {
 		try (Statement stmt = conn.createStatement()) {
 			stmt.executeUpdate(
-					"CREATE TABLE IF NOT EXISTS matricula (dni_alumno VARCHAR, cod_asig VARCHAR, apellido VARCHAR, nota VARCHAR, primary key(dni_alumno, cod_asig))");
+					"create table if not exists matricula (dni_alumno VARCHAR, cod_asig VARCHAR, apellido VARCHAR, nota VARCHAR, primary key(dni_alumno, cod_asig))");
 			log(Level.INFO, "Creacion de la tabla matricula", null);
 			return stmt;
 		} catch (SQLException e) {

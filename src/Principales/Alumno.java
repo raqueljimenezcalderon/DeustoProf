@@ -2,26 +2,28 @@ package Principales;
 
 public class Alumno extends Persona{
 
-	private String dniAlumno;
+	private String intolerancia;
 
-	public Alumno(String dniAlumno, String nombre, String apellido, int edad, String sexo, String ciudad) {
+	public Alumno(String dni, String nombre, String apellido, String birthdate, String sexo, String ciudad,
+			String intolerancia) {
 		
-		super(nombre, apellido, edad, sexo, ciudad);
-		this.dniAlumno = dniAlumno;
+		super(dni, nombre, apellido, birthdate, sexo, ciudad);
+		this.intolerancia = intolerancia;
+	}
+
+	public String getIntolerancia() {
+		return intolerancia;
+	}
+
+	public void setIntolerancia(String intolerancia) {
+		this.intolerancia = intolerancia;
 	}
 	
-	public Alumno() {
-		
-		super();
-		this.dniAlumno = "";
-	}
+	
+	
+	
 
-	public String getDniAlumno() {
-		return dniAlumno;
-	}
 
-	public void setDniAlumno(String dniAlumno) {
-		this.dniAlumno = dniAlumno;
-	}
+
 
 }

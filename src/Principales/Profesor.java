@@ -1,36 +1,19 @@
 package Principales;
 
-public class Profesor extends Persona{
+public class Profesor extends Persona {
 
-	private String nombreUsuario;
 	private String contrasena;
 	private String telefono;
 
-	public Profesor(String nombreUsuario, String nombre, String apellido, int edad, String sexo, String ciudad,
+	public Profesor(String dni, String nombre, String apellido, String birthdate, String sexo, String ciudad,
 			String contrasena, String telefono) {
-		
-		super(nombre, apellido, edad, sexo, ciudad);
-		this.nombreUsuario = nombreUsuario;
+
+		super(dni, nombre, apellido, birthdate, sexo, ciudad);
 		this.contrasena = contrasena;
 		this.telefono = telefono;
 	}
+
 	
-	public Profesor() {
-
-		super();
-		this.nombreUsuario = "";
-		this.contrasena = "";
-		this.telefono = "";
-	}
-
-	public String getNombreUsuario() {
-		return nombreUsuario;
-	}
-
-	public void setNombreUsuario(String nombreUsuario) {
-		this.nombreUsuario = nombreUsuario;
-	}
-
 	public String getContrasena() {
 		return contrasena;
 	}
