@@ -1,4 +1,4 @@
-package Principales;
+package principales;
 
 public class BDException extends Exception {
 

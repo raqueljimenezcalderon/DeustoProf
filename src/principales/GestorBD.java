@@ -1,4 +1,4 @@
-package Principales;
+package principales;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -116,7 +116,7 @@ public class GestorBD {
 	public static Statement createMatriculaTable() throws BDException {
 		try (Statement stmt = conn.createStatement()) {
 			stmt.executeUpdate(
-					"create table if not exists matricula (dni_alumno VARCHAR, cod_asig VARCHAR, apellido VARCHAR, nota VARCHAR, primary key(dni_alumno, cod_asig))");
+					"create table if not exists matricula (dni_alumno VARCHAR, cod_asig VARCHAR, nota VARCHAR, primary key(dni_alumno, cod_asig))");
 			log(Level.INFO, "Creacion de la tabla matricula", null);
 			return stmt;
 		} catch (SQLException e) {

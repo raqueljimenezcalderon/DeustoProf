@@ -2,8 +2,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Principales.BDException;
-import Principales.GestorBD;
+import principales.BDException;
+import principales.GestorBD;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;

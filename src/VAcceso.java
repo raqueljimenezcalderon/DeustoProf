@@ -13,8 +13,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 
-import Principales.BDException;
-import Principales.GestorBD;
+import principales.BDException;
+import principales.GestorBD;
 
 import javax.swing.JButton;
 import java.awt.GridLayout;
