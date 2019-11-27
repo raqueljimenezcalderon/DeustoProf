@@ -23,7 +23,7 @@ import java.awt.event.ActionListener;
 public class VRegistrar extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textFieldNombreUsuario;
+	private JTextField textFieldDNI;
 	private JPasswordField passwordFieldContraseña;
 	private JTextField textFieldNombre;
 	private JTextField textFieldApellido;
@@ -55,18 +55,18 @@ public class VRegistrar extends JFrame {
 		labelRegistrar.setBounds(15, 35, 174, 26);
 		contentPane.add(labelRegistrar);
 		
-		JLabel labelNombreUsuario = new JLabel("Introduce tu nombre de usuario:");
-		labelNombreUsuario.setForeground(new Color(0, 102, 153));
-		labelNombreUsuario.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		labelNombreUsuario.setBounds(15, 84, 313, 18);
-		contentPane.add(labelNombreUsuario);
+		JLabel labelDNI = new JLabel("Introduce tu DNI:");
+		labelDNI.setForeground(new Color(0, 102, 153));
+		labelDNI.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		labelDNI.setBounds(15, 84, 313, 18);
+		contentPane.add(labelDNI);
 		
-		textFieldNombreUsuario = new JTextField();
-		textFieldNombreUsuario.setForeground(Color.GRAY);
-		textFieldNombreUsuario.setFont(new Font("Tahoma", Font.ITALIC, 19));
-		textFieldNombreUsuario.setColumns(10);
-		textFieldNombreUsuario.setBounds(15, 119, 179, 25);
-		contentPane.add(textFieldNombreUsuario);
+		textFieldDNI = new JTextField();
+		textFieldDNI.setForeground(Color.GRAY);
+		textFieldDNI.setFont(new Font("Tahoma", Font.ITALIC, 19));
+		textFieldDNI.setColumns(10);
+		textFieldDNI.setBounds(15, 119, 179, 25);
+		contentPane.add(textFieldDNI);
 		
 		JLabel labelContraseña = new JLabel("Introduce tu contrase\u00F1a:");
 		labelContraseña.setForeground(new Color(0, 102, 153));
@@ -135,19 +135,23 @@ public class VRegistrar extends JFrame {
 		JButton buttonRegistrarse = new JButton("Registrarse");
 		buttonRegistrarse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String nUsuario = textFieldNombreUsuario.getText();
+				String nDNI = textFieldDNI.getText();
 				String nombre = textFieldNombre.getText();
 				String apellido = textFieldApellido.getText();
-				char[] contrasena = passwordFieldContraseña.getPassword();
+				String contrasena = String.valueOf(passwordFieldContraseña.getPassword());
 				String telefono = textFieldTelefono.getText();
-				String sexo; 
+				String sexo =""; 
 				if(rdbtnMasculino.isSelected()) {
 					sexo = "Masculino";
 				}else if (radioButtonFemenino.isSelected()){
 					sexo = "Femenino";
 				}
 				
+				
+				
 			}
+
+			
 		});
 		buttonRegistrarse.setForeground(SystemColor.activeCaption);
 		buttonRegistrarse.setForeground(new Color(0, 102, 153));

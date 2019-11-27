@@ -26,7 +26,7 @@ import java.sql.Statement;
 public class VLogin extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textFieldUsuario;
+	private JTextField textFieldDNI;
 	private JPasswordField passwordField;
 
 	// BBDD
@@ -97,18 +97,18 @@ public class VLogin extends JFrame {
 		labelIniciaSesion.setBounds(15, 59, 174, 29);
 		contentPane.add(labelIniciaSesion);
 
-		JLabel labelUsuario = new JLabel("Usuario:");
-		labelUsuario.setForeground(new Color(0, 102, 153));
-		labelUsuario.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		labelUsuario.setBounds(52, 106, 128, 18);
-		contentPane.add(labelUsuario);
+		JLabel labelDNI = new JLabel("DNI:");
+		labelDNI.setForeground(new Color(0, 102, 153));
+		labelDNI.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		labelDNI.setBounds(52, 106, 128, 18);
+		contentPane.add(labelDNI);
 
-		textFieldUsuario = new JTextField();
-		textFieldUsuario.setForeground(Color.GRAY);
-		textFieldUsuario.setFont(new Font("Tahoma", Font.ITALIC, 19));
-		textFieldUsuario.setColumns(10);
-		textFieldUsuario.setBounds(52, 140, 179, 25);
-		contentPane.add(textFieldUsuario);
+		textFieldDNI = new JTextField();
+		textFieldDNI.setForeground(Color.GRAY);
+		textFieldDNI.setFont(new Font("Tahoma", Font.ITALIC, 19));
+		textFieldDNI.setColumns(10);
+		textFieldDNI.setBounds(52, 140, 179, 25);
+		contentPane.add(textFieldDNI);
 
 		JLabel labelContraseña = new JLabel("Contrase\u00F1a:");
 		labelContraseña.setForeground(new Color(0, 102, 153));
@@ -126,6 +126,8 @@ public class VLogin extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 
+				GestorBD.login(textFieldDNI.getText(), textFieldDNI.getText());
+				
 			}
 		});
 		btnEntrar.addActionListener(new ActionListener() {

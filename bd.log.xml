@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-11-27T16:45:36</date>
+  <millis>1574869536072</millis>
+  <sequence>0</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Iniciada la conexion con la BD</message>
+</record>
+<record>
+  <date>2019-11-27T16:45:36</date>
+  <millis>1574869536079</millis>
+  <sequence>1</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Base de datos funcionando correctamente</message>
+</record>
+<record>
+  <date>2019-11-27T16:45:36</date>
+  <millis>1574869536084</millis>
+  <sequence>2</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creacion de la tabla profesor</message>
+</record>
+<record>
+  <date>2019-11-27T16:45:36</date>
+  <millis>1574869536086</millis>
+  <sequence>3</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creacion de la tabla alumno</message>
+</record>
+<record>
+  <date>2019-11-27T16:45:36</date>
+  <millis>1574869536086</millis>
+  <sequence>4</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creacion de la tabla asignatura</message>
+</record>
+<record>
+  <date>2019-11-27T16:45:36</date>
+  <millis>1574869536087</millis>
+  <sequence>5</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creacion de la tabla matricula</message>
+</record>
+<record>
+  <date>2019-11-27T16:46:41</date>
+  <millis>1574869601567</millis>
+  <sequence>6</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Iniciada la conexion con la BD</message>
+</record>
+<record>
+  <date>2019-11-27T16:46:41</date>
+  <millis>1574869601568</millis>
+  <sequence>7</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Base de datos funcionando correctamente</message>
+</record>
+<record>
+  <date>2019-11-27T16:46:41</date>
+  <millis>1574869601570</millis>
+  <sequence>8</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Creacion de la tabla profesor</message>
+</record>
+<record>
+  <date>2019-11-27T16:46:41</date>
+  <millis>1574869601571</millis>
+  <sequence>9</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Creacion de la tabla alumno</message>
+</record>
+<record>
+  <date>2019-11-27T16:46:41</date>
+  <millis>1574869601572</millis>
+  <sequence>10</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Creacion de la tabla asignatura</message>
+</record>
+<record>
+  <date>2019-11-27T16:46:41</date>
+  <millis>1574869601573</millis>
+  <sequence>11</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Creacion de la tabla matricula</message>
+</record>
+<record>
+  <date>2019-11-27T16:46:43</date>
+  <millis>1574869603660</millis>
+  <sequence>12</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Cierre de base de datos</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-11-27T16:49:29</date>
+  <millis>1574869769367</millis>
+  <sequence>0</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Iniciada la conexion con la BD</message>
+</record>
+<record>
+  <date>2019-11-27T16:49:29</date>
+  <millis>1574869769370</millis>
+  <sequence>1</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Base de datos funcionando correctamente</message>
+</record>
+<record>
+  <date>2019-11-27T16:49:29</date>
+  <millis>1574869769373</millis>
+  <sequence>2</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creacion de la tabla profesor</message>
+</record>
+<record>
+  <date>2019-11-27T16:49:29</date>
+  <millis>1574869769374</millis>
+  <sequence>3</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creacion de la tabla alumno</message>
+</record>
+<record>
+  <date>2019-11-27T16:49:29</date>
+  <millis>1574869769375</millis>
+  <sequence>4</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creacion de la tabla asignatura</message>
+</record>
+<record>
+  <date>2019-11-27T16:49:29</date>
+  <millis>1574869769377</millis>
+  <sequence>5</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creacion de la tabla matricula</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-11-27T16:50:36</date>
+  <millis>1574869836022</millis>
+  <sequence>0</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Iniciada la conexion con la BD</message>
+</record>
+<record>
+  <date>2019-11-27T16:50:36</date>
+  <millis>1574869836025</millis>
+  <sequence>1</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Base de datos funcionando correctamente</message>
+</record>
+<record>
+  <date>2019-11-27T16:50:36</date>
+  <millis>1574869836029</millis>
+  <sequence>2</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creacion de la tabla profesor</message>
+</record>
+<record>
+  <date>2019-11-27T16:50:36</date>
+  <millis>1574869836029</millis>
+  <sequence>3</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creacion de la tabla alumno</message>
+</record>
+<record>
+  <date>2019-11-27T16:50:36</date>
+  <millis>1574869836030</millis>
+  <sequence>4</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creacion de la tabla asignatura</message>
+</record>
+<record>
+  <date>2019-11-27T16:50:36</date>
+  <millis>1574869836032</millis>
+  <sequence>5</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creacion de la tabla matricula</message>
+</record>
+<record>
+  <date>2019-11-27T16:50:38</date>
+  <millis>1574869838884</millis>
+  <sequence>6</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Iniciada la conexion con la BD</message>
+</record>
+<record>
+  <date>2019-11-27T16:50:38</date>
+  <millis>1574869838884</millis>
+  <sequence>7</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Base de datos funcionando correctamente</message>
+</record>
+<record>
+  <date>2019-11-27T16:50:38</date>
+  <millis>1574869838886</millis>
+  <sequence>8</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Creacion de la tabla profesor</message>
+</record>
+<record>
+  <date>2019-11-27T16:50:38</date>
+  <millis>1574869838889</millis>
+  <sequence>9</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Creacion de la tabla alumno</message>
+</record>
+<record>
+  <date>2019-11-27T16:50:38</date>
+  <millis>1574869838890</millis>
+  <sequence>10</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Creacion de la tabla asignatura</message>
+</record>
+<record>
+  <date>2019-11-27T16:50:38</date>
+  <millis>1574869838891</millis>
+  <sequence>11</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Creacion de la tabla matricula</message>
+</record>
+<record>
+  <date>2019-11-27T16:51:30</date>
+  <millis>1574869890478</millis>
+  <sequence>12</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Cierre de base de datos</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-11-27T16:55:33</date>
+  <millis>1574870133216</millis>
+  <sequence>0</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Iniciada la conexion con la BD</message>
+</record>
+<record>
+  <date>2019-11-27T16:55:33</date>
+  <millis>1574870133220</millis>
+  <sequence>1</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Base de datos funcionando correctamente</message>
+</record>
+<record>
+  <date>2019-11-27T16:55:33</date>
+  <millis>1574870133225</millis>
+  <sequence>2</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creacion de la tabla profesor</message>
+</record>
+<record>
+  <date>2019-11-27T16:55:33</date>
+  <millis>1574870133226</millis>
+  <sequence>3</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creacion de la tabla alumno</message>
+</record>
+<record>
+  <date>2019-11-27T16:55:33</date>
+  <millis>1574870133228</millis>
+  <sequence>4</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creacion de la tabla asignatura</message>
+</record>
+<record>
+  <date>2019-11-27T16:55:33</date>
+  <millis>1574870133229</millis>
+  <sequence>5</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creacion de la tabla matricula</message>
+</record>
+<record>
+  <date>2019-11-27T16:55:35</date>
+  <millis>1574870135210</millis>
+  <sequence>6</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Cierre de base de datos</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-11-27T17:40:44</date>
+  <millis>1574872844228</millis>
+  <sequence>0</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Iniciada la conexion con la BD</message>
+</record>
+<record>
+  <date>2019-11-27T17:40:44</date>
+  <millis>1574872844232</millis>
+  <sequence>1</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Base de datos funcionando correctamente</message>
+</record>
+<record>
+  <date>2019-11-27T17:40:44</date>
+  <millis>1574872844236</millis>
+  <sequence>2</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creacion de la tabla profesor</message>
+</record>
+<record>
+  <date>2019-11-27T17:40:44</date>
+  <millis>1574872844237</millis>
+  <sequence>3</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creacion de la tabla alumno</message>
+</record>
+<record>
+  <date>2019-11-27T17:40:44</date>
+  <millis>1574872844238</millis>
+  <sequence>4</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creacion de la tabla asignatura</message>
+</record>
+<record>
+  <date>2019-11-27T17:40:44</date>
+  <millis>1574872844239</millis>
+  <sequence>5</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creacion de la tabla matricula</message>
+</record>
+<record>
+  <date>2019-11-27T17:40:49</date>
+  <millis>1574872849225</millis>
+  <sequence>6</sequence>
+  <logger>principales.GestorBD</logger>
+  <level>INFO</level>
+  <class>principales.GestorBD</class>
+  <method>log</method>
+  <thread>15</thread>
+  <message>Cierre de base de datos</message>
+</record>
+</log>

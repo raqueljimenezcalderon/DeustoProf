@@ -3,6 +3,7 @@ package principales;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.FileHandler;
@@ -166,6 +167,38 @@ public class GestorBD {
 		} else {
 			logger.log(level, msg, excepcion);
 		}
+	}
+	
+	//Faltan ciudad y birthdate
+	public static void login(String nDNI, String contrasena) {
+		String sql = "Select dni, contrasena from Profesores where nDNI = ? and "
+				+ "contrasena = ?";
+
+		try {
+			//Conectarse a la bbdd
+			Connection conexion = (Connection)DriverManager.getConnection("jdbc:sqlite:DeustoProf.bd");
+			
+			//Preparar la sentencia SQL
+			PreparedStatement st = (PreparedStatement) conexion.prepareStatement(sql);
+			
+			//Introducir los parametros recibidos en la sentencia SQL
+			st.setString(1, nDNI);
+			st.setString(2, contrasena);
+			
+			//Ejecuta la sentencia y devuelve un resultado
+			ResultSet rs = st.executeQuery();
+			
+			if(rs.next()) {
+				System.out.println("Has iniciado sesion con exito");
+			} else {
+				System.out.println("Usuario o contraseña incorrecto");
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 }
