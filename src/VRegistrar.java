@@ -6,6 +6,7 @@ import javax.swing.border.EmptyBorder;
 
 import principales.BDException;
 import principales.GestorBD;
+import principales.Profesor;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -135,16 +136,34 @@ public class VRegistrar extends JFrame {
 		JButton buttonRegistrarse = new JButton("Registrarse");
 		buttonRegistrarse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				GestorBD GBD = new GestorBD();
 				String nDNI = textFieldDNI.getText();
 				String nombre = textFieldNombre.getText();
 				String apellido = textFieldApellido.getText();
 				String contrasena = String.valueOf(passwordFieldContraseña.getPassword());
 				String telefono = textFieldTelefono.getText();
 				String sexo =""; 
+				Profesor p;
 				if(rdbtnMasculino.isSelected()) {
 					sexo = "Masculino";
+					p = new Profesor(nDNI, nombre, apellido, "", sexo, "", contrasena, telefono);
+					try {
+						GBD.guardarProfesor(p);
+					} catch (BDException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}else if (radioButtonFemenino.isSelected()){
 					sexo = "Femenino";
+					p = new Profesor(nDNI, nombre, apellido, "", sexo, "", contrasena, telefono);
+					try {
+						GBD.guardarProfesor(p);
+					} catch (BDException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}else {
+					System.out.println("Se debe seleccionar una opción");
 				}
 				
 				

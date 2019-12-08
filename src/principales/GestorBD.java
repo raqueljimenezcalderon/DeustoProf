@@ -77,6 +77,7 @@ public class GestorBD {
 	// Crea la tabla 'profesor' si no existe
 	public static Statement createPofesorTable() throws BDException {
 		try (Statement stmt = conn.createStatement()) {
+			
 			stmt.executeUpdate(
 					"create table if not exists profesor (dni_profe VARCHAR primary key, nombre VARCHAR, apellido VARCHAR, birthdate VARCHAR, sexo VARCHAR, ciudad VARCHAR, contrasena VARCHAR, telefono VARCHAR)");
 			log(Level.INFO, "Creacion de la tabla profesor", null);
@@ -127,7 +128,7 @@ public class GestorBD {
 	
 	//Guardar usuario
 	public void guardarProfesor(Profesor p) throws BDException {
-		String sql = "INSERT INTO profesor(dni_profe,nombre,apellido,birthdate,sexo,ciudad,contrasena,telefono)VALUES (?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO profesor VALUES (?,?,?,?,?,?,?,?)";
 		try (PreparedStatement stmt = conn.prepareStatement(sql)) { // el preparestatement gestiona esos "?"
 			// rellenamos los valores de la plantilla
 			stmt.setString(1, p.getdni());
@@ -139,9 +140,10 @@ public class GestorBD {
 			stmt.setString(7, p.getContrasena());
 			stmt.setString(8, p.getTelefono());
 
-			stmt.executeUpdate(sql);
+			stmt.executeUpdate();
 		} catch (SQLException e) {
-			throw new BDException("Error al guardar losd datos del profesor", e);
+			e.printStackTrace();
+			//throw new BDException("Error al guardar los datos del profesor", e);
 		}
 	}
 
@@ -171,8 +173,7 @@ public class GestorBD {
 	
 	//Faltan ciudad y birthdate
 	public static int login(String nDNI, String contrasena) {
-		String sql = "Select dni_profe, contrasena from profesor where " + nDNI + "= ? and "
-				+ contrasena + "= ?";
+		String sql = "Select dni_profe, contrasena from profesor where dni_profe = ? and contrasena = ?";
 
 		try {
 			//Conectarse a la bbdd

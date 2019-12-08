@@ -7,6 +7,8 @@ import principales.GestorBD;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.Color;
@@ -136,10 +138,14 @@ public class VLogin extends JFrame {
 					&& passwordField.getPassword() == null || String.valueOf(passwordField.getPassword()).isEmpty()) {
 					System.out.println("Introduce un DNI o contrasena valido");
 				}else {
-					GestorBD.login(textFieldDNI.getText(), String.valueOf(passwordField.getPassword()));
-					VAcceso acc = new VAcceso();
-					acc.setVisible(true);
-					closeWin();
+					if(GestorBD.login(textFieldDNI.getText(), String.valueOf(passwordField.getPassword())) ==0) {
+						VAcceso acc = new VAcceso();
+						acc.setVisible(true);
+						closeWin();
+					}else {
+						JOptionPane.showConfirmDialog(null, "Introduce un usuario y contrasena valido");
+					}
+						
 				}
 					
 				
