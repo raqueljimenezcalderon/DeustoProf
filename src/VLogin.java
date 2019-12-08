@@ -11,6 +11,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.Color;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
 import javax.swing.JPasswordField;
 import javax.swing.UIManager;
 import java.awt.event.ActionListener;
@@ -125,16 +126,23 @@ public class VLogin extends JFrame {
 		btnEntrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-
-				GestorBD.login(textFieldDNI.getText(), textFieldDNI.getText());
 				
 			}
 		});
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VAcceso acc = new VAcceso();
-				acc.setVisible(true);
-				closeWin();
+				
+				if(textFieldDNI.getText().isEmpty() || textFieldDNI.getText() == null
+					&& passwordField.getPassword() == null || String.valueOf(passwordField.getPassword()).isEmpty()) {
+					System.out.println("Introduce un DNI o contrasena valido");
+				}else {
+					GestorBD.login(textFieldDNI.getText(), String.valueOf(passwordField.getPassword()));
+					VAcceso acc = new VAcceso();
+					acc.setVisible(true);
+					closeWin();
+				}
+					
+				
 
 			}
 		});

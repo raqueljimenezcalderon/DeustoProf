@@ -170,9 +170,9 @@ public class GestorBD {
 	}
 	
 	//Faltan ciudad y birthdate
-	public static void login(String nDNI, String contrasena) {
-		String sql = "Select dni, contrasena from Profesores where nDNI = ? and "
-				+ "contrasena = ?";
+	public static int login(String nDNI, String contrasena) {
+		String sql = "Select dni_profe, contrasena from profesor where " + nDNI + "= ? and "
+				+ contrasena + "= ?";
 
 		try {
 			//Conectarse a la bbdd
@@ -189,15 +189,19 @@ public class GestorBD {
 			ResultSet rs = st.executeQuery();
 			
 			if(rs.next()) {
+				
 				System.out.println("Has iniciado sesion con exito");
+				return 0;
 			} else {
 				System.out.println("Usuario o contraseña incorrecto");
+				return 1;
 			}
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return 2;
 		
 	}
 
