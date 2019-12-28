@@ -140,6 +140,10 @@ public class GestorBD {
 			stmt.setString(7, p.getContrasena());
 			stmt.setString(8, p.getTelefono());
 
+			/*Para las sentencias Insert, Update y Delete se utiliza el metodo
+			 * executeUpdate(con nada aqui dentro porque sobreescribe la sentencia SQL)
+			 * Para las Select se utiliza el metodo executeQuery();			
+			*/
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
