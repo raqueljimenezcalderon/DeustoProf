@@ -5,6 +5,16 @@ public class Profesor extends Persona {
 	private String contrasena;
 	private String telefono;
 
+	/**
+	 * @param dni
+	 * @param nombre
+	 * @param apellido
+	 * @param birthdate
+	 * @param sexo
+	 * @param ciudad
+	 * @param contrasena
+	 * @param telefono
+	 */
 	public Profesor(String dni, String nombre, String apellido, String birthdate, String sexo, String ciudad,
 			String contrasena, String telefono) {
 

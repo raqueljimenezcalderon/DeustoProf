@@ -3,11 +3,14 @@ package principales;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.swing.JOptionPane;
 
 public class GestorBD {
 
@@ -42,7 +45,7 @@ public class GestorBD {
 			statement.setQueryTimeout(30);
 			log(Level.INFO, "Base de datos funcionando correctamente", null);
 			return statement;
-			
+
 		} catch (SQLException e) {
 			log(Level.SEVERE, "Error en uso de base de datos", e);
 			return null;
@@ -60,7 +63,7 @@ public class GestorBD {
 			if (conn != null) { // esto no está en su ejemplo
 				conn.close();
 				log(Level.INFO, "Cierre de base de datos", null);
-				
+
 			}
 		} catch (SQLException e) {
 			throw new BDException("No se ha podido cerrar la base de datos", e);
@@ -80,14 +83,14 @@ public class GestorBD {
 					"create table if not exists profesor (dni_profe VARCHAR primary key, nombre VARCHAR, apellido VARCHAR, birthdate VARCHAR, sexo VARCHAR, ciudad VARCHAR, contrasena VARCHAR, telefono VARCHAR)");
 			log(Level.INFO, "Creacion de la tabla profesor", null);
 			return stmt;
-			
-		
+
 		} catch (SQLException e) {
 			throw new BDException("Error creando la tabla 'profesor' en la BD", e);
 		}
 	}
 
 	// Crea la tabla 'alumno' si no existe
+
 	public static Statement createAlumnoTable() throws BDException {
 		try (Statement stmt = conn.createStatement()) {
 			stmt.executeUpdate(
@@ -123,10 +126,10 @@ public class GestorBD {
 			throw new BDException("Error creando la tabla 'matricula' en la BD", e);
 		}
 	}
-	
-	//Guardar usuario
+
+	// Guardar usuario
 	public void guardarProfesor(Profesor p) throws BDException {
-		String sql = "INSERT INTO profesor(dni_profe,nombre,apellido,birthdate,sexo,ciudad,contrasena,telefono)VALUES (?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO profesor VALUES (?,?,?,?,?,?,?,?)";
 		try (PreparedStatement stmt = conn.prepareStatement(sql)) { // el preparestatement gestiona esos "?"
 			// rellenamos los valores de la plantilla
 			stmt.setString(1, p.getdni());
@@ -138,9 +141,12 @@ public class GestorBD {
 			stmt.setString(7, p.getContrasena());
 			stmt.setString(8, p.getTelefono());
 
-			stmt.executeUpdate(sql);
+			stmt.executeUpdate(); //por que no funciona si le paso sql?
+			JOptionPane.showMessageDialog(null, "Cuenta correctamente creada", "BIENVENIDO/A",
+					JOptionPane.INFORMATION_MESSAGE);
+			
 		} catch (SQLException e) {
-			throw new BDException("Error al guardar losd datos del profesor", e);
+			throw new BDException("Error al guardar los datos del profesor", e);
 		}
 	}
 
@@ -166,6 +172,39 @@ public class GestorBD {
 		} else {
 			logger.log(level, msg, excepcion);
 		}
+	}
+
+	public static int login(String nDNI, String contrasena) {
+		String sql = "Select dni_profe, contrasena from profesor where dni_profe = ? and contrasena = ?";
+
+		try {
+			// Conectarse a la bbdd
+			Connection conexion = (Connection) DriverManager.getConnection("jdbc:sqlite:DeustoProf.bd");
+
+			// Preparar la sentencia SQL
+			PreparedStatement st = (PreparedStatement) conexion.prepareStatement(sql);
+
+			// Introducir los parametros recibidos en la sentencia SQL
+			st.setString(1, nDNI);
+			st.setString(2, contrasena);
+
+			// Ejecuta la sentencia y devuelve un resultado
+			ResultSet rs = st.executeQuery();
+
+			if (rs.next()) {
+
+				System.out.println("Has iniciado sesion con exito");
+				return 0;
+			} else {
+				System.out.println("Usuario o contraseña incorrecto");
+				return 1;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 2;
+
 	}
 
 }
