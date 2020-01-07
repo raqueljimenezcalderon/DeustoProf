@@ -79,6 +79,7 @@ public class GestorBD {
 	// Crea la tabla 'profesor' si no existe
 	public static Statement createPofesorTable() throws BDException {
 		try (Statement stmt = conn.createStatement()) {
+
 			stmt.executeUpdate(
 					"create table if not exists profesor (dni_profe VARCHAR primary key, nombre VARCHAR, apellido VARCHAR, birthdate VARCHAR, sexo VARCHAR, ciudad VARCHAR, contrasena VARCHAR, telefono VARCHAR)");
 			log(Level.INFO, "Creacion de la tabla profesor", null);
@@ -141,12 +142,14 @@ public class GestorBD {
 			stmt.setString(7, p.getContrasena());
 			stmt.setString(8, p.getTelefono());
 
-			stmt.executeUpdate(); //por que no funciona si le paso sql?
+			stmt.executeUpdate(); // por que no funciona si le paso sql?
 			JOptionPane.showMessageDialog(null, "Cuenta correctamente creada", "BIENVENIDO/A",
 					JOptionPane.INFORMATION_MESSAGE);
-			
+
 		} catch (SQLException e) {
+
 			throw new BDException("Error al guardar los datos del profesor", e);
+
 		}
 	}
 

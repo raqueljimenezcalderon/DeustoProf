@@ -13,6 +13,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.Color;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
 import javax.swing.JPasswordField;
 import javax.swing.UIManager;
 import java.awt.event.ActionListener;
@@ -54,7 +55,7 @@ public class VLogin extends JFrame {
 
 	public void closeWin() {
 		this.dispose();
-		
+
 	}
 
 	/**
@@ -99,11 +100,11 @@ public class VLogin extends JFrame {
 		labelIniciaSesion.setBounds(15, 59, 174, 29);
 		contentPane.add(labelIniciaSesion);
 
-		JLabel labelUsuario = new JLabel("DNI:");
-		labelUsuario.setForeground(new Color(0, 102, 153));
-		labelUsuario.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		labelUsuario.setBounds(52, 106, 128, 18);
-		contentPane.add(labelUsuario);
+		JLabel labelDNI = new JLabel("DNI:");
+		labelDNI.setForeground(new Color(0, 102, 153));
+		labelDNI.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		labelDNI.setBounds(52, 106, 128, 18);
+		contentPane.add(labelDNI);
 
 		textFieldDNI = new JTextField();
 		textFieldDNI.setForeground(Color.GRAY);
@@ -132,23 +133,21 @@ public class VLogin extends JFrame {
 		});
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VAcceso acc = new VAcceso();
-				acc.setVisible(true);
-				closeWin();	
-				
-				if(textFieldDNI.getText().isEmpty() || textFieldDNI.getText() == null
-						&& passwordField.getPassword() == null || String.valueOf(passwordField.getPassword()).isEmpty()) {
-						System.out.println("Introduce un DNI o contrasena valido");
-					}else {
-						if(GestorBD.login(textFieldDNI.getText(), String.valueOf(passwordField.getPassword())) ==0) {
-						//	VAcceso acc = new VAcceso();
-							acc.setVisible(true);
-							closeWin();
-						}else {
-							JOptionPane.showConfirmDialog(null, "Introduce un usuario y contrasena valido");
-						}
-							
+
+				if (textFieldDNI.getText().isEmpty()
+						|| textFieldDNI.getText() == null && passwordField.getPassword() == null
+						|| String.valueOf(passwordField.getPassword()).isEmpty()) {
+					System.out.println("Introduce un DNI o contrasena valido");
+				} else {
+					if (GestorBD.login(textFieldDNI.getText(), String.valueOf(passwordField.getPassword())) == 0) {
+						VAcceso acc = new VAcceso();
+						acc.setVisible(true);
+						closeWin();
+					} else {
+						JOptionPane.showConfirmDialog(null, "Introduce un usuario y contrasena valido");
 					}
+
+				}
 
 			}
 		});

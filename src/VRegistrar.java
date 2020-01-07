@@ -56,6 +56,7 @@ public class VRegistrar extends JFrame {
 		labelRegistrar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 21));
 		labelRegistrar.setBounds(15, 35, 174, 26);
 		contentPane.add(labelRegistrar);
+<<<<<<< HEAD
 
 		JLabel labelDNI = new JLabel("Introduce tu DNI:");
 		labelDNI.setForeground(new Color(0, 102, 153));
@@ -70,6 +71,8 @@ public class VRegistrar extends JFrame {
 		textFieldDNI.setBounds(15, 119, 179, 25);
 		contentPane.add(textFieldDNI);
 
+
+		
 		JLabel labelContraseña = new JLabel("Introduce tu contrase\u00F1a:");
 		labelContraseña.setForeground(new Color(0, 102, 153));
 		labelContraseña.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -137,29 +140,15 @@ public class VRegistrar extends JFrame {
 		JButton buttonRegistrarse = new JButton("Registrarse");
 		buttonRegistrarse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				String nDNI = textFieldDNI.getText();
-//				String nombre = textFieldNombre.getText();
-//				String apellido = textFieldApellido.getText();
-//				String contrasena = String.valueOf(passwordFieldContraseña.getPassword());
-//				String telefono = textFieldTelefono.getText();
-//				String sexo = ""; 
-//				if(rdbtnMasculino.isSelected()) {
-//					sexo = "Masculino";
-//				}else if (radioButtonFemenino.isSelected()){
-//					sexo = "Femenino";
-//				}
-//				
-//			}
-
 				GestorBD GBD = new GestorBD();
 				String nDNI = textFieldDNI.getText();
 				String nombre = textFieldNombre.getText();
 				String apellido = textFieldApellido.getText();
 				String contrasena = String.valueOf(passwordFieldContraseña.getPassword());
 				String telefono = textFieldTelefono.getText();
-				String sexo = "";
+				String sexo =""; 
 				Profesor p;
-				if (rdbtnMasculino.isSelected()) {
+				if(rdbtnMasculino.isSelected()) {
 					sexo = "Masculino";
 					p = new Profesor(nDNI, nombre, apellido, "", sexo, "", contrasena, telefono);
 					try {
@@ -168,7 +157,7 @@ public class VRegistrar extends JFrame {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-				} else if (radioButtonFemenino.isSelected()) {
+				}else if (radioButtonFemenino.isSelected()){
 					sexo = "Femenino";
 					p = new Profesor(nDNI, nombre, apellido, "", sexo, "", contrasena, telefono);
 					try {
@@ -177,11 +166,14 @@ public class VRegistrar extends JFrame {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-				} else {
+				}else {
 					System.out.println("Se debe seleccionar una opción");
 				}
-
+				
+				
+				
 			}
+			
 		});
 		buttonRegistrarse.setForeground(SystemColor.activeCaption);
 		buttonRegistrarse.setForeground(new Color(0, 102, 153));
