@@ -32,6 +32,19 @@ public class VRegistrar extends JFrame {
 	private JTextField textFieldTelefono;
 	private JTextField textFieldBirthdate;
 	private JTextField textFieldCiudad;
+	
+	public static void main(String[] args) {
+	EventQueue.invokeLater(new Runnable() {
+		public void run() {
+			try {
+				VRegistrar frame = new VRegistrar();
+				frame.setVisible(true);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	});
+}
 
 	public void closeWin() {
 		this.dispose();
@@ -56,7 +69,7 @@ public class VRegistrar extends JFrame {
 		labelRegistrar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 21));
 		labelRegistrar.setBounds(15, 35, 174, 26);
 		contentPane.add(labelRegistrar);
-<<<<<<< HEAD
+
 
 		JLabel labelDNI = new JLabel("Introduce tu DNI:");
 		labelDNI.setForeground(new Color(0, 102, 153));
@@ -147,10 +160,12 @@ public class VRegistrar extends JFrame {
 				String contrasena = String.valueOf(passwordFieldContraseña.getPassword());
 				String telefono = textFieldTelefono.getText();
 				String sexo =""; 
+				String birthdate = textFieldBirthdate.getText();
+				String ciudad = textFieldCiudad.getText();
 				Profesor p;
 				if(rdbtnMasculino.isSelected()) {
 					sexo = "Masculino";
-					p = new Profesor(nDNI, nombre, apellido, "", sexo, "", contrasena, telefono);
+					p = new Profesor(nDNI, nombre, apellido, birthdate, sexo, ciudad, contrasena, telefono);
 					try {
 						GBD.guardarProfesor(p);
 					} catch (BDException e1) {
@@ -159,7 +174,7 @@ public class VRegistrar extends JFrame {
 					}
 				}else if (radioButtonFemenino.isSelected()){
 					sexo = "Femenino";
-					p = new Profesor(nDNI, nombre, apellido, "", sexo, "", contrasena, telefono);
+					p = new Profesor(nDNI, nombre, apellido, birthdate, sexo, ciudad, contrasena, telefono);
 					try {
 						GBD.guardarProfesor(p);
 					} catch (BDException e1) {
