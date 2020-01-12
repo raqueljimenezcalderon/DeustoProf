@@ -67,10 +67,10 @@ public class VLogin extends JFrame {
 		try {
 			conn = GestorBD.iniciarConexion();
 			st = GestorBD.usarBD(conn);
-			GestorBD.createPofesorTable();
-			GestorBD.createAlumnoTable();
-			GestorBD.createAsignaturaTable();
-			GestorBD.createMatriculaTable();
+//			GestorBD.createPofesorTable();
+//			GestorBD.createAlumnoTable();
+//			GestorBD.createAsignaturaTable();
+//			GestorBD.createMatriculaTable();
 
 		} catch (BDException e1) {
 			// TODO Auto-generated catch block

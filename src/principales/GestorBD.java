@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,8 +26,10 @@ public class GestorBD {
 
 	public static Connection iniciarConexion() throws BDException {
 		try {
-			Class.forName("org.sqlite.JDBC");
-			conn = DriverManager.getConnection("jdbc:sqlite:DeustoProf.bd");
+			//Class.forName("org.sqlite.JDBC");
+			//conn = DriverManager.getConnection("jdbc:sqlite:DeustoProf.bd");
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/deustoprof", "root", "");
 			log(Level.INFO, "Iniciada la conexion con la BD", null);
 			return conn;
 		} catch (ClassNotFoundException e) {
@@ -35,11 +38,11 @@ public class GestorBD {
 			throw new BDException("No se ha podido conectar a la BD", e);
 		}
 	}
-
+	
 	// Statement para usar la base de datos
 	public static Statement usarBD(Connection con) {
-		try {
-			Statement statement = con.createStatement();
+		try (Statement statement = con.createStatement();) {
+			
 			statement.setQueryTimeout(30);
 			log(Level.INFO, "Base de datos funcionando correctamente", null);
 			return statement;
@@ -150,6 +153,29 @@ public class GestorBD {
 			//throw new BDException("Error al guardar los datos del profesor", e);
 		}
 	}
+	public void guardarAlumno(Alumno a) throws BDException {
+		String sql = "INSERT INTO alumno VALUES (?,?,?,?,?,?,?)";
+		try (PreparedStatement stmt = conn.prepareStatement(sql)) { // el preparestatement gestiona esos "?"
+			// rellenamos los valores de la plantilla
+			stmt.setString(1, a.getdni());
+			stmt.setString(2, a.getNombre());
+			stmt.setString(3, a.getApellido());
+			stmt.setString(4, a.getBirthdate());
+			stmt.setString(5, a.getSexo());
+			stmt.setString(6, a.getCiudad());
+			stmt.setString(7, a.getIntolerancia());
+			
+
+			/*Para las sentencias Insert, Update y Delete se utiliza el metodo
+			 * executeUpdate(con nada aqui dentro porque sobreescribe la sentencia SQL)
+			 * Para las Select se utiliza el metodo executeQuery();			
+			*/
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			//throw new BDException("Error al guardar los datos del profesor", e);
+		}
+	}
 
 	// Logger
 	private static Logger logger = null;
@@ -179,13 +205,10 @@ public class GestorBD {
 	public static int login(String nDNI, String contrasena) {
 		String sql = "Select dni_profe, contrasena from profesor where dni_profe = ? and contrasena = ?";
 
-		try {
-			//Conectarse a la bbdd
-			Connection conexion = (Connection)DriverManager.getConnection("jdbc:sqlite:DeustoProf.bd");
-			
-			//Preparar la sentencia SQL
-			PreparedStatement st = (PreparedStatement) conexion.prepareStatement(sql);
-			
+		try (//Conectarse a la bbdd
+				Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/deustoprof", "root", "");
+				//Preparar la sentencia SQL
+				PreparedStatement st = (PreparedStatement) conexion.prepareStatement(sql);){
 			//Introducir los parametros recibidos en la sentencia SQL
 			st.setString(1, nDNI);
 			st.setString(2, contrasena);
@@ -207,7 +230,99 @@ public class GestorBD {
 			e.printStackTrace();
 		}
 		return 2;
+	
 		
+	}
+
+	public static ArrayList<Alumno> visualizarAlumno() {
+		String dni, nombre, apellido, birthdate, sexo, ciudad, intolerancia;
+		String sql = "Select dni_alumno, nombre, apellido, birthdate, sexo, ciudad, intolerancia from alumno";
+		ArrayList<Alumno> alumnos = new ArrayList<>();
+		
+		try(Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/deustoprof", "root", "");
+			PreparedStatement st = (PreparedStatement) conexion.prepareStatement(sql);
+			ResultSet rs = st.executeQuery(); ){
+			while(rs.next()) {
+				
+				dni = rs.getString("dni_alumno");
+				nombre = rs.getString("nombre");
+				apellido = rs.getString("apellido");
+				birthdate = rs.getString("birthdate");
+				sexo = rs.getString("sexo");
+				ciudad = rs.getString("ciudad");
+				intolerancia = rs.getString("intolerancia");
+				
+				
+				
+				alumnos.add(new Alumno(dni, nombre, apellido, birthdate, sexo, ciudad, intolerancia));
+				
+			} 			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return alumnos;
+		
+	}
+	
+	public static ArrayList<Asignatura> visualizarAsignatura() {
+		String cod_asig, nombre, descripcion;
+		String sql = "Select cod_asig, nombre, descripcion from asignatura";
+		ArrayList<Asignatura> asignaturas = new ArrayList<>();
+		
+		try(Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/deustoprof", "root", "");
+			PreparedStatement st = (PreparedStatement) conexion.prepareStatement(sql);
+			ResultSet rs = st.executeQuery(); ){
+			while(rs.next()) {
+				
+				cod_asig = rs.getString("cod_asig");
+				nombre = rs.getString("nombre");
+				descripcion = rs.getString("descripcion");
+				
+				
+				
+				asignaturas.add(new Asignatura(cod_asig, nombre, descripcion));
+				
+			} 			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return asignaturas;
+		
+	}
+	
+	public static ArrayList<Matricula> visualizarMatricula() {
+		String cod_asig, dni_alumno;
+		String nota;
+		String sql = "Select dni_alumno, cod_asig, nota from matricula";
+		ArrayList<Matricula> matriculas = new ArrayList<>();
+		
+		try(Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/deustoprof", "root", "");
+			PreparedStatement st = (PreparedStatement) conexion.prepareStatement(sql);
+			ResultSet rs = st.executeQuery(); ){
+			while(rs.next()) {
+				
+				cod_asig = rs.getString("cod_asig");
+				dni_alumno = rs.getString("dni_alumno");
+				nota = rs.getString("nota");
+				
+				
+				
+				matriculas.add(new Matricula(cod_asig, dni_alumno, nota));
+				
+			} 			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return matriculas;
+		
+	}
+	
+	public static Connection getConn() {
+		return conn;
+	}
+
+	public static void setConn(Connection conn) {
+		GestorBD.conn = conn;
 	}
 
 }
