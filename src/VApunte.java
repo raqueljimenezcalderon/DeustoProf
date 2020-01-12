@@ -8,9 +8,12 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
@@ -57,6 +60,19 @@ public class VApunte extends JFrame {
 
 		JTextArea textArea = new JTextArea();
 		contentPane.add(textArea, BorderLayout.CENTER);
+
+		FileReader reader;
+		try {
+			reader = new FileReader("Apunte.txt");
+			BufferedReader br = new BufferedReader(reader);
+			textArea.read(br, null);
+			br.close();
+			textArea.requestFocus();
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
 
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.addActionListener(new ActionListener() {
