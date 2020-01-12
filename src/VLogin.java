@@ -144,7 +144,7 @@ public class VLogin extends JFrame {
 						acc.setVisible(true);
 						closeWin();
 					} else {
-						JOptionPane.showConfirmDialog(null, "Introduce un usuario y contrasena valido");
+						JOptionPane.showMessageDialog(null, "Introduce un usuario y contraseña validos");
 					}
 
 				}
