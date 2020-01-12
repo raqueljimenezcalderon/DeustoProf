@@ -207,7 +207,7 @@ public class VRegistrar extends JFrame {
 		buttonAtras.setForeground(SystemColor.activeCaption);
 		buttonAtras.setForeground(new Color(0, 102, 153));
 		buttonAtras.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		buttonAtras.setBounds(15, 496, 139, 29);
+		buttonAtras.setBounds(15, 497, 139, 29);
 		contentPane.add(buttonAtras);
 
 		ButtonGroup bg = new ButtonGroup();
