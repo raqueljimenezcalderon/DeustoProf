@@ -34,19 +34,19 @@ public class VRegistrar extends JFrame {
 	private JTextField textFieldTelefono;
 	private JTextField textFieldBirthdate;
 	private JTextField textFieldCiudad;
-	
-	public static void main(String[] args) {
-	EventQueue.invokeLater(new Runnable() {
-		public void run() {
-			try {
-				VRegistrar frame = new VRegistrar();
-				frame.setVisible(true);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	});
-}
+
+//	public static void main(String[] args) {
+//	EventQueue.invokeLater(new Runnable() {
+//		public void run() {
+//			try {
+//				VRegistrar frame = new VRegistrar();
+//				frame.setVisible(true);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		}
+//	});
+//}
 
 	public void closeWin() {
 		this.dispose();
@@ -72,7 +72,6 @@ public class VRegistrar extends JFrame {
 		labelRegistrar.setBounds(15, 35, 174, 26);
 		contentPane.add(labelRegistrar);
 
-
 		JLabel labelDNI = new JLabel("Introduce tu DNI:");
 		labelDNI.setForeground(new Color(0, 102, 153));
 		labelDNI.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -86,8 +85,6 @@ public class VRegistrar extends JFrame {
 		textFieldDNI.setBounds(15, 119, 179, 25);
 		contentPane.add(textFieldDNI);
 
-
-		
 		JLabel labelContraseña = new JLabel("Introduce tu contrase\u00F1a:");
 		labelContraseña.setForeground(new Color(0, 102, 153));
 		labelContraseña.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -161,45 +158,43 @@ public class VRegistrar extends JFrame {
 				String apellido = textFieldApellido.getText();
 				String contrasena = String.valueOf(passwordFieldContraseña.getPassword());
 				String telefono = textFieldTelefono.getText();
-				String sexo =""; 
+				String sexo = "";
 				String birthdate = textFieldBirthdate.getText();
 				String ciudad = textFieldCiudad.getText();
 				Profesor p;
-				if(rdbtnMasculino.isSelected()) {
+				if (rdbtnMasculino.isSelected()) {
 					sexo = "Masculino";
 					p = new Profesor(nDNI, nombre, apellido, birthdate, sexo, ciudad, contrasena, telefono);
 					try {
 						GBD.guardarProfesor(p);
-						JOptionPane.showMessageDialog(null, "Te has registrado correctamente",
-								"Info", JOptionPane.INFORMATION_MESSAGE);
-								closeWin();
+						JOptionPane.showMessageDialog(null, "Te has registrado correctamente", "Info",
+								JOptionPane.INFORMATION_MESSAGE);
+						closeWin();
 					} catch (BDException e1) {
-						// TODO Auto-generated catch block
+
 						e1.printStackTrace();
 					}
-				}else if (radioButtonFemenino.isSelected()){
+				} else if (radioButtonFemenino.isSelected()) {
 					sexo = "Femenino";
 					p = new Profesor(nDNI, nombre, apellido, birthdate, sexo, ciudad, contrasena, telefono);
 					try {
 						GBD.guardarProfesor(p);
-						JOptionPane.showMessageDialog(null, "Te has registrado correctamente",
-								"Info", JOptionPane.INFORMATION_MESSAGE);
-								closeWin();
+						JOptionPane.showMessageDialog(null, "Te has registrado correctamente", "Info",
+								JOptionPane.INFORMATION_MESSAGE);
+						closeWin();
 					} catch (BDException e1) {
-						// TODO Auto-generated catch block
+
 						e1.printStackTrace();
 					}
-					
-				}else {
-					JOptionPane.showMessageDialog(null, "Todos los campos tienen que estar rellenados",
-							"Info", JOptionPane.ERROR_MESSAGE);
+
+				} else {
+					JOptionPane.showMessageDialog(null, "Todos los campos tienen que estar rellenados", "Info",
+							JOptionPane.ERROR_MESSAGE);
 
 				}
-				
-				
-				
+
 			}
-			
+
 		});
 		buttonRegistrarse.setForeground(SystemColor.activeCaption);
 		buttonRegistrarse.setForeground(new Color(0, 102, 153));
@@ -224,30 +219,26 @@ public class VRegistrar extends JFrame {
 		ButtonGroup bg = new ButtonGroup();
 		bg.add(radioButtonFemenino);
 		bg.add(rdbtnMasculino);
-		
+
 		JLabel labelBirthdate = new JLabel("Introduce tu fecha de nacimiento:");
 		labelBirthdate.setForeground(new Color(0, 102, 153));
 		labelBirthdate.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		labelBirthdate.setBounds(15, 338, 313, 18);
 		contentPane.add(labelBirthdate);
-		
+
 		textFieldBirthdate = new JTextField();
 		textFieldBirthdate.setForeground(Color.GRAY);
 		textFieldBirthdate.setFont(new Font("Tahoma", Font.ITALIC, 19));
 		textFieldBirthdate.setColumns(10);
 		textFieldBirthdate.setBounds(15, 375, 179, 25);
 		contentPane.add(textFieldBirthdate);
-		
-		JProgressBar progressBar = new JProgressBar(0,8);
-		progressBar.setBounds(15, 16, 662, 14);
-		contentPane.add(progressBar);
-		
+
 		JLabel labelCiudad = new JLabel("Ciudad:");
 		labelCiudad.setForeground(new Color(0, 102, 153));
 		labelCiudad.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		labelCiudad.setBounds(422, 339, 313, 18);
 		contentPane.add(labelCiudad);
-		
+
 		textFieldCiudad = new JTextField();
 		textFieldCiudad.setForeground(Color.GRAY);
 		textFieldCiudad.setFont(new Font("Tahoma", Font.ITALIC, 19));

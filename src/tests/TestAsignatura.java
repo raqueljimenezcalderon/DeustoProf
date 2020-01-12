@@ -8,6 +8,8 @@ import principales.Asignatura;
 
 public class TestAsignatura {
 
+	
+	//comprueba los getters y setters de la clase Asignatura
 	@Test
 	public void testgetNombreAsignatura() {
 		Asignatura asignatura = new Asignatura("1","Matematicas", "Es una asignatura donde...");

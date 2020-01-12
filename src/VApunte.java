@@ -28,19 +28,19 @@ public class VApunte extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VApunte frame = new VApunte();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					VApunte frame = new VApunte();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
+//
 	public void closeWin() {
 		this.dispose();
 
@@ -63,6 +63,7 @@ public class VApunte extends JFrame {
 		JTextArea textArea = new JTextArea();
 		contentPane.add(textArea, BorderLayout.CENTER);
 
+		// carga la información almacenada en el txt
 		FileReader reader;
 		try {
 			reader = new FileReader("Apunte.txt");
@@ -81,10 +82,9 @@ public class VApunte extends JFrame {
 		btnGuardar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				//guarda l ainformación introducida por el usuario en el txt
 				File writeFile;
 				Writer writer = null;
-
 				writeFile = new File("Apunte.txt");
 
 				try {
@@ -92,11 +92,12 @@ public class VApunte extends JFrame {
 					textArea.write(writer);
 
 				} catch (IOException ex) {
-
+					ex.printStackTrace();
 				} finally {
 					try {
 						writer.close();
 					} catch (Exception ex) {
+						ex.printStackTrace();
 					}
 				}
 			}

@@ -74,7 +74,7 @@ public class VAcceso extends JFrame {
 
 	public void closeWin() {
 		this.dispose();
-		
+
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class VAcceso extends JFrame {
 	public VAcceso() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("logo.png"));
 		setTitle("DeustoProf");
-		this.setUndecorated(true); 
+		this.setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1021, 575);
 		contentPane = new JPanel();
@@ -101,7 +101,7 @@ public class VAcceso extends JFrame {
 		btnAñadirAsignatura.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VAsignatura a = new VAsignatura();
-				//v.getFrame().setVisible(true);
+				// v.getFrame().setVisible(true);
 				VAsignatura.getFrame().setVisible(true);
 			}
 		});
@@ -113,7 +113,7 @@ public class VAcceso extends JFrame {
 		btnAñadirAlumno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VAlumno alu = new VAlumno();
-				//v.getFrame().setVisible(true);
+				// v.getFrame().setVisible(true);
 				alu.frame.setVisible(true);
 
 			}
@@ -126,7 +126,7 @@ public class VAcceso extends JFrame {
 		btnAñadirNotas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VNota n = new VNota();
-				//v.getFrame().setVisible(true);
+				// v.getFrame().setVisible(true);
 				VNota.getFrame().setVisible(true);
 			}
 		});
@@ -158,13 +158,13 @@ public class VAcceso extends JFrame {
 				VLogin log = new VLogin();
 				log.setVisible(true);
 				closeWin();
-				
+
 			}
 		});
 		btnTomarApuntes.setForeground(new Color(0, 102, 153));
 		btnTomarApuntes.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		panelBotones.add(btnTomarApuntes);
-		
+
 		buttoSalir = new JButton("Salir");
 		buttoSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -181,65 +181,53 @@ public class VAcceso extends JFrame {
 		buttoSalir.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		panelBotones.add(buttoSalir);
 
-//alberto
 		JPanel panelBotonesAbajo = new JPanel();
 		contentPane.add(panelBotonesAbajo, BorderLayout.SOUTH);
 		tablaAlum = new JTable();
 		visualizarAlumno();
 		tablaAlum.setRowHeight(50);
 		tablaAlum.setEnabled(false);
-		
+
 		tablaAsig = new JTable();
 		visualizarAsignatura();
 		tablaAsig.setRowHeight(50);
 		tablaAsig.setEnabled(false);
-		
+
 		tablaNota = new JTable();
 		visualizarNota();
 		tablaNota.setRowHeight(50);
 		tablaNota.setEnabled(false);
-		//tabla.setColumnModel(columnModel);
-		
+
 		panelTabla = new JTabbedPane();
 		JScrollPane tablaPaneAlu = new JScrollPane(tablaAlum);
 		JScrollPane tablaPaneAsig = new JScrollPane(tablaAsig);
 		JScrollPane tablaPaneNota = new JScrollPane(tablaNota);
-		
-//		panelTabla.addTab("profesores", new JPanel());
+
 		panelTabla.addTab("alumno", tablaPaneAlu);
-		panelTabla.addTab("asignatura",tablaPaneAsig);
+		panelTabla.addTab("asignatura", tablaPaneAsig);
 		panelTabla.addTab("matricula", tablaPaneNota);
 		panelTabla.addChangeListener(new ChangeListener() {
-	        public void stateChanged(ChangeEvent e) {
-	            System.out.println("Tab: " + panelTabla.getSelectedIndex());
-	            if(panelTabla.getSelectedIndex() == 0) { //Tabla Alumno
-	            	visualizarAlumno();
-	            	System.out.println("Pestaña alumno");
-	            }
-	            
-				if(panelTabla.getSelectedIndex() == 1) { //Tabla Asignatura
+			public void stateChanged(ChangeEvent e) {
+				System.out.println("Tab: " + panelTabla.getSelectedIndex());
+				if (panelTabla.getSelectedIndex() == 0) { // Tabla Alumno
+					visualizarAlumno();
+					System.out.println("Pestaña alumno");
+				}
+
+				if (panelTabla.getSelectedIndex() == 1) { // Tabla Asignatura
 					visualizarAsignatura();
 					System.out.println("Pestaña asignatura");
-	            }
-				
-				if(panelTabla.getSelectedIndex() == 2) { //Tabla Matricula
+				}
+
+				if (panelTabla.getSelectedIndex() == 2) { // Tabla Matricula
 					visualizarNota();
 					System.out.println("Pestaña matricula");
 				}
-	        }
-	    });
-		// panelTabla.setBounds(0, 0, contentPane.getWidth()/2,
-		// contentPane.getHeight()/2);
+			}
+		});
+
 		panelTabla.setPreferredSize(new Dimension(600, 600));
 		contentPane.add(panelTabla);
-		//		tabla.setBounds(0,0,panelTabla.getWidth(),panelTabla.getHeight());
-				// setJTableColumnsWidth(tabla, 480, 10, 30, 30, 30);
-
-//		columnModel.getColumn(0).setPreferredWidth(100);
-
-//		columnModel.getColumn(0).set
-		
-//		panelTabla.addTab("Tabla", tablaPane);
 
 		panel = new JPanel();
 		contentPane.add(panel, BorderLayout.SOUTH);
@@ -269,10 +257,16 @@ public class VAcceso extends JFrame {
 		btnSalir.setForeground(new Color(0, 102, 153));
 		btnSalir.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		panelBotonesAbajo.add(btnSalir);
-		
-		
+
 	}
 
+	/**
+	 * Crea la tabla.
+	 * 
+	 * @param table
+	 * @param tablePreferredWidth
+	 * @param percentages
+	 */
 	public static void setJTableColumnsWidth(JTable table, int tablePreferredWidth, double... percentages) {
 		double total = 0;
 		for (int i = 0; i < table.getColumnModel().getColumnCount(); i++) {
@@ -284,60 +278,68 @@ public class VAcceso extends JFrame {
 			column.setPreferredWidth((int) (tablePreferredWidth * (percentages[i] / total)));
 		}
 	}
-	
+
+	/**
+	 * Visualiza los datos del alumno en una pestaña de la tabla.
+	 */
 	private void visualizarAlumno() {
 
-		Object[] header = new Object[]{"dni", "Nombre", "apellido", "birthdate", "sexo", "ciudad", "intolerancia"};
+		Object[] header = new Object[] { "dni", "Nombre", "apellido", "birthdate", "sexo", "ciudad", "intolerancia" };
 		DefaultTableModel model = new DefaultTableModel(header, 0);
-		
+
 		ArrayList<Alumno> alumnos = GestorBD.visualizarAlumno();
-		
-	    for (int i = 0; i < alumnos.size(); i++) {
-	        Object[] rowData = new Object[7];
-	        rowData[0] = alumnos.get(i).getdni();
-	        rowData[1] = alumnos.get(i).getNombre();
-	        rowData[2] = alumnos.get(i).getApellido();
-	        rowData[3] = alumnos.get(i).getBirthdate();
-	        rowData[4] = alumnos.get(i).getSexo();
-	        rowData[5] = alumnos.get(i).getCiudad();
-	        rowData[6] = alumnos.get(i).getIntolerancia();
-	        model.addRow(rowData);
-	    }
+
+		for (int i = 0; i < alumnos.size(); i++) {
+			Object[] rowData = new Object[7];
+			rowData[0] = alumnos.get(i).getdni();
+			rowData[1] = alumnos.get(i).getNombre();
+			rowData[2] = alumnos.get(i).getApellido();
+			rowData[3] = alumnos.get(i).getBirthdate();
+			rowData[4] = alumnos.get(i).getSexo();
+			rowData[5] = alumnos.get(i).getCiudad();
+			rowData[6] = alumnos.get(i).getIntolerancia();
+			model.addRow(rowData);
+		}
 		tablaAlum.setModel(model);
 	}
+
+	/**
+	 * Visualiza los datos de la Asignatura en una pestaña de la tabla.
+	 */
 	private void visualizarAsignatura() {
 
-		Object[] header = new Object[]{"cod_asig", "nombre", "descripcion"};
+		Object[] header = new Object[] { "cod_asig", "nombre", "descripcion" };
 		DefaultTableModel model = new DefaultTableModel(header, 0);
-		//DefaultTableModel model = (DefaultTableModel) tabla.getModel();
 		ArrayList<Asignatura> asignaturas = GestorBD.visualizarAsignatura();
-		
-	    for (int i = 0; i < asignaturas.size(); i++) {
-	        Object[] rowData = new Object[7];
-	        rowData[0] = asignaturas.get(i).getCodAsignatura();
-	        rowData[1] = asignaturas.get(i).getNombreAsignatura();
-	        rowData[2] = asignaturas.get(i).getDescripcion();
-	        model.addRow(rowData);
-	    }
-		
-	    tablaAsig.setModel(model);
+
+		for (int i = 0; i < asignaturas.size(); i++) {
+			Object[] rowData = new Object[7];
+			rowData[0] = asignaturas.get(i).getCodAsignatura();
+			rowData[1] = asignaturas.get(i).getNombreAsignatura();
+			rowData[2] = asignaturas.get(i).getDescripcion();
+			model.addRow(rowData);
+		}
+
+		tablaAsig.setModel(model);
 	}
-	
+
+	/**
+	 * Visualiza los datos de las notas en una pestaña de la tabla.
+	 */
 	private void visualizarNota() {
 
-		Object[] header = new Object[]{ "dni_alumno", "cod_asig", "nota"};
+		Object[] header = new Object[] { "dni_alumno", "cod_asig", "nota" };
 		DefaultTableModel model = new DefaultTableModel(header, 0);
-		//DefaultTableModel model = (DefaultTableModel) tabla.getModel();
 		ArrayList<Matricula> matriculas = GestorBD.visualizarMatricula();
-		
-	    for (int i = 0; i < matriculas.size(); i++) {
-	        Object[] rowData = new Object[3];
-	        rowData[0] = matriculas.get(i).getDni_alumno();
-	        rowData[1] = matriculas.get(i).getCod_asig();
-	        rowData[2] = matriculas.get(i).getNota();
-	        model.addRow(rowData);
-	    }
-		
-	    tablaNota.setModel(model);
+
+		for (int i = 0; i < matriculas.size(); i++) {
+			Object[] rowData = new Object[3];
+			rowData[0] = matriculas.get(i).getDni_alumno();
+			rowData[1] = matriculas.get(i).getCod_asig();
+			rowData[2] = matriculas.get(i).getNota();
+			model.addRow(rowData);
+		}
+
+		tablaNota.setModel(model);
 	}
 }

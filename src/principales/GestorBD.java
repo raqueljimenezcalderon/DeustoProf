@@ -176,7 +176,7 @@ public class GestorBD {
 			//throw new BDException("Error al guardar los datos del profesor", e);
 		}
 	}
-
+	
 	// Logger
 	private static Logger logger = null;
 
@@ -201,7 +201,7 @@ public class GestorBD {
 		}
 	}
 	
-	//Faltan ciudad y birthdate
+	
 	public static int login(String nDNI, String contrasena) {
 		String sql = "Select dni_profe, contrasena from profesor where dni_profe = ? and contrasena = ?";
 

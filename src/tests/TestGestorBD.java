@@ -12,6 +12,8 @@ import principales.GestorBD;
 
 public class TestGestorBD {
 
+	
+	//Comprueba que salta la excepción NullPointerException por pasarle una conexion erronea.
 	@Test
 	public void sqlExceptionTest() {
 		boolean ok = true;
