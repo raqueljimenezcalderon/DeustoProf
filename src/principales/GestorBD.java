@@ -129,16 +129,16 @@ public class GestorBD {
 	}
 	// Crea la tabla 'apuntes' si no existe
 
-		public static Statement createApunteTable() throws BDException {
-			try (Statement stmt = conn.createStatement()) {
-				stmt.executeUpdate(
-						"create table if not exists apunte (id INTEGER AUTOINCREMENT,  texto VARCHAR, dni_profe VARCHAR, primary key(id, dni_profe))");
-				log(Level.INFO, "Creacion de la tabla matricula", null);
-				return stmt;
-			} catch (SQLException e) {
-				throw new BDException("Error creando la tabla 'apunte' en la BD", e);
-			}
-		}
+//		public static Statement createApunteTable() throws BDException {
+//			try (Statement stmt = conn.createStatement()) {
+//				stmt.executeUpdate(
+//						"create table if not exists apunte (id INTEGER AUTOINCREMENT,  texto VARCHAR, dni_profe VARCHAR, primary key(id, dni_profe))");
+//				log(Level.INFO, "Creacion de la tabla matricula", null);
+//				return stmt;
+//			} catch (SQLException e) {
+//				throw new BDException("Error creando la tabla 'apunte' en la BD", e);
+//			}
+//		}
 
 	// Guardar usuario
 	public void guardarProfesor(Profesor p) throws BDException {
@@ -164,27 +164,7 @@ public class GestorBD {
 
 		}
 	}
-	// Guardar apunte
-		public void guardarApunte(Profesor p) throws BDException {
-			String sql = "INSERT INTO apunte VALUES (?,?,?)";
-			try (PreparedStatement stmt = conn.prepareStatement(sql)) { // el preparestatement gestiona esos "?"
-				// rellenamos los valores de la plantilla
-				
-				
-				
-				
-				
-				
-				stmt.executeUpdate(); // por que no funciona si le paso sql?
-				JOptionPane.showMessageDialog(null, "Apunte correctamente creado", "BIENVENIDO/A",
-						JOptionPane.INFORMATION_MESSAGE);
-
-			} catch (SQLException e) {
-
-				throw new BDException("Error al guardar la nota", e);
-
-			}
-		}
+	
 	// Logger
 	private static Logger logger = null;
 

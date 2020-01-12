@@ -54,14 +54,31 @@ public class VApunte extends JFrame {
 
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.NORTH);
-		
+
 		JTextArea textArea = new JTextArea();
 		contentPane.add(textArea, BorderLayout.CENTER);
 
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-		
+
+				File writeFile;
+				Writer writer = null;
+
+				writeFile = new File("Apunte.txt");
+
+				try {
+					writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(writeFile), "utf-8"));
+					textArea.write(writer);
+
+				} catch (IOException ex) {
+
+				} finally {
+					try {
+						writer.close();
+					} catch (Exception ex) {
+					}
+				}
 			}
 		});
 		panel.add(btnGuardar);
@@ -69,7 +86,7 @@ public class VApunte extends JFrame {
 		JButton btnEliminar = new JButton("Eliminar");
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 			}
 		});
 		panel.add(btnEliminar);
@@ -84,11 +101,6 @@ public class VApunte extends JFrame {
 		});
 		panel.add(btnAtrs);
 
-		
-		
-		
-		
 	}
 
-	
 }
