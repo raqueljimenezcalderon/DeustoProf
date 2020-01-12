@@ -153,6 +153,14 @@ public class VAcceso extends JFrame {
 		panelBotones.add(btnEditarNotas);
 
 		btnTomarApuntes = new JButton("Tomar Apuntes");
+		btnTomarApuntes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				VLogin log = new VLogin();
+				log.setVisible(true);
+				closeWin();
+				
+			}
+		});
 		btnTomarApuntes.setForeground(new Color(0, 102, 153));
 		btnTomarApuntes.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		panelBotones.add(btnTomarApuntes);

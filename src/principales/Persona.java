@@ -10,6 +10,14 @@ public class Persona {
 	private String ciudad;
 	
 	
+	/**
+	 * @param dni
+	 * @param nombre
+	 * @param apellido
+	 * @param birthdate
+	 * @param sexo
+	 * @param ciudad
+	 */
 	public Persona(String dni, String nombre, String apellido, String birthdate, String sexo, String ciudad) {
 		
 		this.dni = dni;

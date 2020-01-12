@@ -55,7 +55,7 @@ public class VLogin extends JFrame {
 
 	public void closeWin() {
 		this.dispose();
-		
+
 	}
 
 	/**
@@ -128,28 +128,26 @@ public class VLogin extends JFrame {
 		btnEntrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				
+
 			}
 		});
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				if(textFieldDNI.getText().isEmpty() || textFieldDNI.getText() == null
-					&& passwordField.getPassword() == null || String.valueOf(passwordField.getPassword()).isEmpty()) {
+
+				if (textFieldDNI.getText().isEmpty()
+						|| textFieldDNI.getText() == null && passwordField.getPassword() == null
+						|| String.valueOf(passwordField.getPassword()).isEmpty()) {
 					System.out.println("Introduce un DNI o contrasena valido");
-				}else {
-					if(GestorBD.login(textFieldDNI.getText(), String.valueOf(passwordField.getPassword())) ==0) {
+				} else {
+					if (GestorBD.login(textFieldDNI.getText(), String.valueOf(passwordField.getPassword())) == 0) {
 						VAcceso acc = new VAcceso();
 						acc.setVisible(true);
 						closeWin();
-					}else {
-						
-						JOptionPane.showMessageDialog(null, "Introduce un usuario y contrasena valido");
+					} else {
+						JOptionPane.showConfirmDialog(null, "Introduce un usuario y contrasena valido");
 					}
-						
+
 				}
-					
-				
 
 			}
 		});
