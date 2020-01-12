@@ -32,9 +32,11 @@ public class VAlumno {
 		panel = new JPanel();
 		panel.setLocation(0, 0);
 		panel.setLayout(null);
-		panel.setSize(new Dimension(413, 311)); //width -- height
+		panel.setSize(new Dimension(494, 311)); //width -- height
 		
 		dniProfeLabel = new JLabel("DNI: ");
+		dniProfeLabel.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		dniProfeLabel.setForeground(new Color(0, 102, 153));
 		dniProfeLabel.setBounds(30, 40, anchura, altura);
 		panel.add(dniProfeLabel);
 		
@@ -43,30 +45,38 @@ public class VAlumno {
 		panel.add(dniProfeTxt);
 		
 		nombreLabel = new JLabel("Nombre: ");
-		nombreLabel.setBounds(205, 40, anchura, altura);
+		nombreLabel.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		nombreLabel.setForeground(new Color(0, 102, 153));
+		nombreLabel.setBounds(239, 40, anchura, altura);
 		panel.add(nombreLabel);
 		
 		nombreTxt = new JTextField();
-		nombreTxt.setBounds(290, 40, anchura, altura);
+		nombreTxt.setBounds(345, 42, 108, 40);
 		panel.add(nombreTxt);
 		
 		apellidoLabel = new JLabel("Apellido: ");
+		apellidoLabel.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		apellidoLabel.setForeground(new Color(0, 102, 153));
 		apellidoLabel.setBounds(30, 96, anchura, altura);
 		panel.add(apellidoLabel);
 		
 		apellidoTxt = new JTextField();
-		apellidoTxt.setBounds(110, 96, anchura, altura);
+		apellidoTxt.setBounds(110, 96, 114, 40);
 		panel.add(apellidoTxt);
 		
 		birthdateLabel = new JLabel("Birthdate: ");
-		birthdateLabel.setBounds(205, 96, anchura, altura);
+		birthdateLabel.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		birthdateLabel.setForeground(new Color(0, 102, 153));
+		birthdateLabel.setBounds(239, 96, 94, 40);
 		panel.add(birthdateLabel);
 		
 		birthdateTxt = new JTextField();
-		birthdateTxt.setBounds(290, 96, anchura, altura);
+		birthdateTxt.setBounds(345, 98, 108, 40);
 		panel.add(birthdateTxt);
 		
 		sexoLabel = new JLabel("Sexo: ");
+		sexoLabel.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		sexoLabel.setForeground(new Color(0, 102, 153));
 		sexoLabel.setBounds(30, 152, anchura, altura);
 		panel.add(sexoLabel);
 		
@@ -75,19 +85,23 @@ public class VAlumno {
 		panel.add(sexoTxt);
 		
 		ciudadLabel = new JLabel("Ciudad: ");
-		ciudadLabel.setBounds(205, 152, anchura, altura);
+		ciudadLabel.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		ciudadLabel.setForeground(new Color(0, 102, 153));
+		ciudadLabel.setBounds(239, 152, anchura, altura);
 		panel.add(ciudadLabel);
 		
 		ciudadTxt = new JTextField();
-		ciudadTxt.setBounds(290, 152, anchura, altura);
+		ciudadTxt.setBounds(345, 154, 108, 40);
 		panel.add(ciudadTxt);
 		
 		intoleranciaLabel = new JLabel("Intolerancia:");
-		intoleranciaLabel.setBounds(30, 208, 89, 40);
+		intoleranciaLabel.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		intoleranciaLabel.setForeground(new Color(0, 102, 153));
+		intoleranciaLabel.setBounds(30, 208, 122, 40);
 		panel.add(intoleranciaLabel);
 		
 		intoleranciaTxt = new JTextField();
-		intoleranciaTxt.setBounds(134, 208, 236, 40);
+		intoleranciaTxt.setBounds(167, 210, 236, 40);
 		panel.add(intoleranciaTxt);
 		
 		JButton buttonRegistrarse = new JButton("Anadir alumno");
@@ -118,7 +132,7 @@ public class VAlumno {
 		});
 		buttonRegistrarse.setForeground(SystemColor.activeCaption);
 		buttonRegistrarse.setForeground(new Color(0, 102, 153));
-		buttonRegistrarse.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		buttonRegistrarse.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		buttonRegistrarse.setBounds(213, 264, 169, 27);
 		panel.add(buttonRegistrarse);
 		
@@ -130,14 +144,14 @@ public class VAlumno {
 		});
 		buttonAtras.setForeground(SystemColor.activeCaption);
 		buttonAtras.setForeground(new Color(0, 102, 153));
-		buttonAtras.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		buttonAtras.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		buttonAtras.setBounds(40, 263, 139, 29);
 		panel.add(buttonAtras);
 		
 		frame = new JFrame();
 		frame.getContentPane().setLayout(null);
 		frame.setVisible(true);
-		frame.setBounds(50, 50, 435, 367);
+		frame.setBounds(50, 50, 516, 372);
 		frame.getContentPane().add(panel);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		

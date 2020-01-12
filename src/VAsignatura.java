@@ -14,6 +14,9 @@ import javax.swing.JTextField;
 
 import principales.GestorBD;
 
+import java.awt.Color;
+import java.awt.Font;
+
 public class VAsignatura {
 
 	//Constantes
@@ -47,7 +50,9 @@ public class VAsignatura {
 				
 				//Label del codigo
 				codLabel = new JLabel("Codigo asignatura: ");
-				codLabel.setBounds(30, 60, ANCHURA, ALTURA);
+				codLabel.setFont(new Font("Tahoma", Font.PLAIN, 19));
+				codLabel.setForeground(new Color(0, 102, 153));
+				codLabel.setBounds(30, 60, 164, 60);
 				pane.add(codLabel);
 				
 				//Textfield del codigo
@@ -57,16 +62,20 @@ public class VAsignatura {
 				
 				//Label del nombre
 				nombreLabel = new JLabel("Nombre: ");
-				nombreLabel.setBounds(30, 158, ANCHURA, ALTURA);
+				nombreLabel.setFont(new Font("Tahoma", Font.PLAIN, 19));
+				nombreLabel.setForeground(new Color(0, 102, 153));
+				nombreLabel.setBounds(30, 146, ANCHURA, ALTURA);
 				pane.add(nombreLabel);
 				
 				//Textfield del nombre
 				nombreTxt = new JTextField();
-				nombreTxt.setBounds(205, 158, 309, 60);
+				nombreTxt.setBounds(205, 146, 309, 60);
 				pane.add(nombreTxt);
 				
 				//Label del nombre
 				descripcionLabel = new JLabel("Descripcion: ");
+				descripcionLabel.setFont(new Font("Tahoma", Font.PLAIN, 19));
+				descripcionLabel.setForeground(new Color(0, 102, 153));
 				descripcionLabel.setBounds(30, 238, ANCHURA, ALTURA);
 				pane.add(descripcionLabel);
 				
@@ -77,7 +86,9 @@ public class VAsignatura {
 				
 				//Boton para submitar
 				crearAsignatura = new JButton("Crear");
-				crearAsignatura.setBounds(118, 332, ANCHURA, ALTURA);
+				crearAsignatura.setForeground(new Color(0, 102, 153));
+				crearAsignatura.setFont(new Font("Tahoma", Font.PLAIN, 20));
+				crearAsignatura.setBounds(364, 342, ANCHURA, ALTURA);
 				crearAsignatura.addActionListener(new ActionListener() {
 
 					@Override
@@ -138,7 +149,4 @@ public class VAsignatura {
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
 	}
-	
-	
-	
 }

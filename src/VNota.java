@@ -18,6 +18,9 @@ import javax.swing.JTextField;
 import principales.GestorBD;
 import principales.Matricula;
 
+import java.awt.Color;
+import java.awt.Font;
+
 public class VNota {
 
 	//Constantes
@@ -51,6 +54,8 @@ public class VNota {
 				
 				//Label del codigo
 				DNILabel = new JLabel("DNI alumno: ");
+				DNILabel.setForeground(new Color(0, 102, 153));
+				DNILabel.setFont(new Font("Tahoma", Font.PLAIN, 19));
 				DNILabel.setBounds(30, 60, ANCHURA, ALTURA);
 				pane.add(DNILabel);
 				
@@ -61,6 +66,8 @@ public class VNota {
 				
 				//Label del nombre
 				codLabel = new JLabel("Codigo asignatura: ");
+				codLabel.setForeground(new Color(0, 102, 153));
+				codLabel.setFont(new Font("Tahoma", Font.PLAIN, 19));
 				codLabel.setBounds(30, 169, ANCHURA, ALTURA);
 				pane.add(codLabel);
 				
@@ -71,6 +78,8 @@ public class VNota {
 				
 				//Label del nombre
 				notaLabel = new JLabel("Nota: ");
+				notaLabel.setForeground(new Color(0, 102, 153));
+				notaLabel.setFont(new Font("Tahoma", Font.PLAIN, 19));
 				notaLabel.setBounds(30, 261, ANCHURA, ALTURA);
 				pane.add(notaLabel);
 				
@@ -81,7 +90,9 @@ public class VNota {
 				
 				//Boton para submitar
 				crearMatricula = new JButton("Crear");
-				crearMatricula.setBounds(145, 354, ANCHURA, ALTURA);
+				crearMatricula.setForeground(new Color(0, 102, 153));
+				crearMatricula.setFont(new Font("Tahoma", Font.PLAIN, 20));
+				crearMatricula.setBounds(147, 358, ANCHURA, ALTURA);
 				crearMatricula.addActionListener(new ActionListener() {
 
 					@Override
