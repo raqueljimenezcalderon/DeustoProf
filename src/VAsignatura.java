@@ -46,32 +46,32 @@ public class VAsignatura {
 				
 				//Label del codigo
 				codLabel = new JLabel("Codigo asignatura: ");
-				codLabel.setBounds(30, 20, ANCHURA, ALTURA);
+				codLabel.setBounds(30, 60, ANCHURA, ALTURA);
 				pane.add(codLabel);
 				
 				//Textfield del codigo
 				codAsigTxt = new JTextField();
-				codAsigTxt.setBounds(300, 60, ANCHURA, ALTURA);
+				codAsigTxt.setBounds(300, 60, 309, 60);
 				pane.add(codAsigTxt);
 				
 				//Label del nombre
 				nombreLabel = new JLabel("Nombre: ");
-				nombreLabel.setBounds(30, 240, ANCHURA, ALTURA);
+				nombreLabel.setBounds(30, 158, ANCHURA, ALTURA);
 				pane.add(nombreLabel);
 				
 				//Textfield del nombre
 				nombreTxt = new JTextField();
-				nombreTxt.setBounds(300, 240, ANCHURA, ALTURA);
+				nombreTxt.setBounds(300, 158, 309, 60);
 				pane.add(nombreTxt);
 				
 				//Label del nombre
 				descripcionLabel = new JLabel("Descripcion: ");
-				descripcionLabel.setBounds(30, 390, ANCHURA, ALTURA);
+				descripcionLabel.setBounds(30, 238, ANCHURA, ALTURA);
 				pane.add(descripcionLabel);
 				
 				//Textfield del codigo
 				descripcionTxt = new JTextField();
-				descripcionTxt.setBounds(300, 390, ANCHURA, ALTURA);
+				descripcionTxt.setBounds(300, 251, 309, 238);
 				pane.add(descripcionTxt);
 				
 				//Boton para submitar
@@ -98,9 +98,9 @@ public class VAsignatura {
 						
 				//Add el pane al frame
 				pane.setLayout(null);
-				frame.add(pane);
+				frame.getContentPane().add(pane);
 				frame.setVisible(true);
-				frame.setLayout(null);
+				frame.getContentPane().setLayout(null);
 				//EXIT ON CLOSE
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				
