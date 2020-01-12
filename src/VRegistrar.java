@@ -9,6 +9,8 @@ import principales.GestorBD;
 import principales.Profesor;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JTextField;
@@ -168,6 +170,8 @@ public class VRegistrar extends JFrame {
 					p = new Profesor(nDNI, nombre, apellido, birthdate, sexo, ciudad, contrasena, telefono);
 					try {
 						GBD.guardarProfesor(p);
+						JOptionPane.showMessageDialog(null, "Te has registrado correctamente",
+								"Info", JOptionPane.INFORMATION_MESSAGE);
 					} catch (BDException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -177,12 +181,18 @@ public class VRegistrar extends JFrame {
 					p = new Profesor(nDNI, nombre, apellido, birthdate, sexo, ciudad, contrasena, telefono);
 					try {
 						GBD.guardarProfesor(p);
+						JOptionPane.showMessageDialog(null, "Te has registrado correctamente",
+								"Info", JOptionPane.INFORMATION_MESSAGE);
+
 					} catch (BDException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
+					
 				}else {
-					System.out.println("Se debe seleccionar una opción");
+					JOptionPane.showMessageDialog(null, "Todos los campos tienen que estar rellenados",
+							"Info", JOptionPane.ERROR_MESSAGE);
+
 				}
 				
 				

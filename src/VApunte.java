@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.TextArea;
 
@@ -18,6 +19,7 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class VApunte extends JFrame {
 
@@ -75,6 +77,8 @@ public class VApunte extends JFrame {
 		}
 
 		JButton btnGuardar = new JButton("Guardar");
+		btnGuardar.setForeground(new Color(0, 102, 153));
+		btnGuardar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -99,15 +103,9 @@ public class VApunte extends JFrame {
 		});
 		panel.add(btnGuardar);
 
-		JButton btnEliminar = new JButton("Eliminar");
-		btnEliminar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
-		panel.add(btnEliminar);
-
 		JButton btnAtrs = new JButton("Atr\u00E1s");
+		btnAtrs.setForeground(new Color(0, 102, 153));
+		btnAtrs.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnAtrs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VAcceso log = new VAcceso();
