@@ -102,7 +102,7 @@ public class VAcceso extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				VAsignatura a = new VAsignatura();
 				// v.getFrame().setVisible(true);
-				VAsignatura.getFrame().setVisible(true);
+				a.frame.setVisible(true);
 			}
 		});
 		panelBotones.add(btnAñadirAsignatura);
@@ -127,7 +127,7 @@ public class VAcceso extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				VNota n = new VNota();
 				// v.getFrame().setVisible(true);
-				VNota.getFrame().setVisible(true);
+				n.frame.setVisible(true);
 			}
 		});
 		panelBotones.add(btnAñadirNotas);

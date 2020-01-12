@@ -31,7 +31,7 @@ public class VNota {
 	private String dni_alumno;
 	private String nota;
 
-	private static JFrame frame;
+	JFrame frame;
 	private JPanel pane;
 
 	private JLabel DNILabel, codLabel, notaLabel;
@@ -42,7 +42,7 @@ public class VNota {
 
 	private JButton crearMatricula;
 
-	public void VNota() {
+	public VNota() {
 		// Inicializar el Panel
 		pane = new JPanel();
 		pane.setLocation(0, 0);
@@ -186,9 +186,7 @@ public class VNota {
 
 	}
 
-	public static JFrame getFrame() {
-		return frame;
-	}
+
 
 	public void setFrame(JFrame frame) {
 		this.frame = frame;

@@ -27,7 +27,7 @@ public class VAsignatura {
 	private String nombre;
 	private String descripcion;
 
-	private static JFrame frame;
+	JFrame frame;
 	private JPanel pane;
 
 	private JLabel codLabel, nombreLabel, descripcionLabel;
@@ -38,7 +38,7 @@ public class VAsignatura {
 
 	private JButton crearAsignatura;
 
-	public void VAsignatura() {
+	public VAsignatura() {
 		// Inicializar el Panel
 		pane = new JPanel();
 		pane.setLocation(0, 0);
@@ -138,9 +138,6 @@ public class VAsignatura {
 
 	}
 
-	public static JFrame getFrame() {
-		return frame;
-	}
 
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
