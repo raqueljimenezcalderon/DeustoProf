@@ -42,7 +42,8 @@ public class VAsignatura {
 	private void init() {
 		//Inicializar el Panel
 				pane = new JPanel();
-				pane.setSize(700, 700);
+				pane.setLocation(0, 0);
+				pane.setSize(536, 418);
 				
 				//Label del codigo
 				codLabel = new JLabel("Codigo asignatura: ");
@@ -51,7 +52,7 @@ public class VAsignatura {
 				
 				//Textfield del codigo
 				codAsigTxt = new JTextField();
-				codAsigTxt.setBounds(300, 60, 309, 60);
+				codAsigTxt.setBounds(205, 60, 309, 60);
 				pane.add(codAsigTxt);
 				
 				//Label del nombre
@@ -61,7 +62,7 @@ public class VAsignatura {
 				
 				//Textfield del nombre
 				nombreTxt = new JTextField();
-				nombreTxt.setBounds(300, 158, 309, 60);
+				nombreTxt.setBounds(205, 158, 309, 60);
 				pane.add(nombreTxt);
 				
 				//Label del nombre
@@ -71,12 +72,12 @@ public class VAsignatura {
 				
 				//Textfield del codigo
 				descripcionTxt = new JTextField();
-				descripcionTxt.setBounds(300, 251, 309, 238);
+				descripcionTxt.setBounds(205, 238, 309, 60);
 				pane.add(descripcionTxt);
 				
 				//Boton para submitar
 				crearAsignatura = new JButton("Crear");
-				crearAsignatura.setBounds(350, 500, ANCHURA, ALTURA);
+				crearAsignatura.setBounds(118, 332, ANCHURA, ALTURA);
 				crearAsignatura.addActionListener(new ActionListener() {
 
 					@Override
@@ -94,7 +95,7 @@ public class VAsignatura {
 				//Inicializar el frame
 				frame = new JFrame();
 				frame.setTitle("Asignaturas");
-				frame.setSize(1000, 1000);
+				frame.setSize(558, 474);
 						
 				//Add el pane al frame
 				pane.setLayout(null);

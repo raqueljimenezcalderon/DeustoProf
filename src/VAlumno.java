@@ -30,8 +30,9 @@ public class VAlumno {
 	
 	public VAlumno() {
 		panel = new JPanel();
+		panel.setLocation(0, 0);
 		panel.setLayout(null);
-		panel.setSize(new Dimension(500,500)); //width -- height
+		panel.setSize(new Dimension(413, 311)); //width -- height
 		
 		dniProfeLabel = new JLabel("DNI: ");
 		dniProfeLabel.setBounds(30, 40, anchura, altura);
@@ -42,51 +43,51 @@ public class VAlumno {
 		panel.add(dniProfeTxt);
 		
 		nombreLabel = new JLabel("Nombre: ");
-		nombreLabel.setBounds(30, 90, anchura, altura);
+		nombreLabel.setBounds(205, 40, anchura, altura);
 		panel.add(nombreLabel);
 		
 		nombreTxt = new JTextField();
-		nombreTxt.setBounds(110, 90, anchura, altura);
+		nombreTxt.setBounds(290, 40, anchura, altura);
 		panel.add(nombreTxt);
 		
 		apellidoLabel = new JLabel("Apellido: ");
-		apellidoLabel.setBounds(30, 140, anchura, altura);
+		apellidoLabel.setBounds(30, 96, anchura, altura);
 		panel.add(apellidoLabel);
 		
 		apellidoTxt = new JTextField();
-		apellidoTxt.setBounds(110, 140, anchura, altura);
+		apellidoTxt.setBounds(110, 96, anchura, altura);
 		panel.add(apellidoTxt);
 		
 		birthdateLabel = new JLabel("Birthdate: ");
-		birthdateLabel.setBounds(30, 190, anchura, altura);
+		birthdateLabel.setBounds(205, 96, anchura, altura);
 		panel.add(birthdateLabel);
 		
 		birthdateTxt = new JTextField();
-		birthdateTxt.setBounds(110, 190, anchura, altura);
+		birthdateTxt.setBounds(290, 96, anchura, altura);
 		panel.add(birthdateTxt);
 		
 		sexoLabel = new JLabel("Sexo: ");
-		sexoLabel.setBounds(30, 240, anchura, altura);
+		sexoLabel.setBounds(30, 152, anchura, altura);
 		panel.add(sexoLabel);
 		
 		sexoTxt = new JTextField();
-		sexoTxt.setBounds(110, 240, anchura, altura);
+		sexoTxt.setBounds(110, 152, anchura, altura);
 		panel.add(sexoTxt);
 		
 		ciudadLabel = new JLabel("Ciudad: ");
-		ciudadLabel.setBounds(200, 240, anchura, altura);
+		ciudadLabel.setBounds(205, 152, anchura, altura);
 		panel.add(ciudadLabel);
 		
 		ciudadTxt = new JTextField();
-		ciudadTxt.setBounds(290, 240, anchura, altura);
+		ciudadTxt.setBounds(290, 152, anchura, altura);
 		panel.add(ciudadTxt);
 		
 		intoleranciaLabel = new JLabel("Intolerancia:");
-		intoleranciaLabel.setBounds(30, 290, anchura, altura);
+		intoleranciaLabel.setBounds(30, 208, 89, 40);
 		panel.add(intoleranciaLabel);
 		
 		intoleranciaTxt = new JTextField();
-		intoleranciaTxt.setBounds(110, 290, anchura, altura);
+		intoleranciaTxt.setBounds(134, 208, 236, 40);
 		panel.add(intoleranciaTxt);
 		
 		JButton buttonRegistrarse = new JButton("Anadir alumno");
@@ -118,7 +119,7 @@ public class VAlumno {
 		buttonRegistrarse.setForeground(SystemColor.activeCaption);
 		buttonRegistrarse.setForeground(new Color(0, 102, 153));
 		buttonRegistrarse.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		buttonRegistrarse.setBounds(418, 366, 139, 27);
+		buttonRegistrarse.setBounds(213, 264, 169, 27);
 		panel.add(buttonRegistrarse);
 		
 		JButton buttonAtras = new JButton("Atr\u00E1s");
@@ -130,13 +131,13 @@ public class VAlumno {
 		buttonAtras.setForeground(SystemColor.activeCaption);
 		buttonAtras.setForeground(new Color(0, 102, 153));
 		buttonAtras.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		buttonAtras.setBounds(15, 366, 139, 29);
+		buttonAtras.setBounds(40, 263, 139, 29);
 		panel.add(buttonAtras);
 		
 		frame = new JFrame();
 		frame.getContentPane().setLayout(null);
 		frame.setVisible(true);
-		frame.setBounds(50, 50, 700, 700);
+		frame.setBounds(50, 50, 435, 367);
 		frame.getContentPane().add(panel);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		

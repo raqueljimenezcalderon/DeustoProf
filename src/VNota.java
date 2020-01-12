@@ -46,11 +46,12 @@ public class VNota {
 	private void init() {
 		//Inicializar el Panel
 				pane = new JPanel();
-				pane.setSize(700, 700);
+				pane.setLocation(0, 0);
+				pane.setSize(488, 434);
 				
 				//Label del codigo
 				DNILabel = new JLabel("DNI alumno: ");
-				DNILabel.setBounds(30, 20, ANCHURA, ALTURA);
+				DNILabel.setBounds(30, 60, ANCHURA, ALTURA);
 				pane.add(DNILabel);
 				
 				//Textfield del codigo
@@ -60,27 +61,27 @@ public class VNota {
 				
 				//Label del nombre
 				codLabel = new JLabel("Codigo asignatura: ");
-				codLabel.setBounds(30, 240, ANCHURA, ALTURA);
+				codLabel.setBounds(30, 169, ANCHURA, ALTURA);
 				pane.add(codLabel);
 				
 				//Textfield del nombre
 				llenarCod();
-				codComboBox.setBounds(300, 240, ANCHURA, ALTURA);
+				codComboBox.setBounds(300, 169, ANCHURA, ALTURA);
 				pane.add(codComboBox);
 				
 				//Label del nombre
 				notaLabel = new JLabel("Nota: ");
-				notaLabel.setBounds(30, 390, ANCHURA, ALTURA);
+				notaLabel.setBounds(30, 261, ANCHURA, ALTURA);
 				pane.add(notaLabel);
 				
 				//Textfield del codigo
 				notaTxt = new JTextField();
-				notaTxt.setBounds(300, 390, ANCHURA, ALTURA);
+				notaTxt.setBounds(300, 261, ANCHURA, ALTURA);
 				pane.add(notaTxt);
 				
 				//Boton para submitar
 				crearMatricula = new JButton("Crear");
-				crearMatricula.setBounds(350, 500, ANCHURA, ALTURA);
+				crearMatricula.setBounds(145, 354, ANCHURA, ALTURA);
 				crearMatricula.addActionListener(new ActionListener() {
 
 					@Override
@@ -95,13 +96,13 @@ public class VNota {
 				//Inicializar el frame
 				frame = new JFrame();
 				frame.setTitle("Asignaturas");
-				frame.setSize(1000, 1000);
+				frame.setSize(510, 490);
 						
 				//Add el pane al frame
 				pane.setLayout(null);
-				frame.add(pane);
+				frame.getContentPane().add(pane);
 				frame.setVisible(true);
-				frame.setLayout(null);
+				frame.getContentPane().setLayout(null);
 				//EXIT ON CLOSE
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				

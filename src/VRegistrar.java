@@ -172,6 +172,7 @@ public class VRegistrar extends JFrame {
 						GBD.guardarProfesor(p);
 						JOptionPane.showMessageDialog(null, "Te has registrado correctamente",
 								"Info", JOptionPane.INFORMATION_MESSAGE);
+								closeWin();
 					} catch (BDException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -183,7 +184,7 @@ public class VRegistrar extends JFrame {
 						GBD.guardarProfesor(p);
 						JOptionPane.showMessageDialog(null, "Te has registrado correctamente",
 								"Info", JOptionPane.INFORMATION_MESSAGE);
-
+								closeWin();
 					} catch (BDException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
