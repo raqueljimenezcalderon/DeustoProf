@@ -155,8 +155,8 @@ public class VAcceso extends JFrame {
 		btnTomarApuntes = new JButton("Tomar Apuntes");
 		btnTomarApuntes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				VLogin log = new VLogin();
-				log.setVisible(true);
+				VApunte apu = new VApunte();
+				apu.setVisible(true);
 				closeWin();
 
 			}
